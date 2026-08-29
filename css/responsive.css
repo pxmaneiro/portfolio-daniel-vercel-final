@@ -1,0 +1,351 @@
+/* ==========================================================================
+   RESPONSIVE.CSS
+   Breakpoints agrupados por seção/componente, na mesma ordem do
+   sections.css. O grid de 12 colunas já é mobile-first (layout.css)  aqui
+   entram apenas os ajustes de composição que o grid genérico não resolve
+   sozinho: navegação mobile, proporção de imagem, bleed, escala dos
+   círculos-guia e recomposição pontual em tablet.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   HEADER / NAV
+   Abaixo de --bp-desktop (1024px), a navegação inline vira overlay
+   full-screen acionado pelo botão "Menu" (texto, sem ícone). Acima disso,
+   comportamento idêntico ao da Etapa 3.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+  .site-nav {
+    display: none;
+  }
+
+  .site-nav[data-state] {
+    display: flex; /* reaparece como overlay assim que nav.js define o estado */
+  }
+
+  .header__menu-toggle {
+    display: block;
+    position: relative;
+    z-index: calc(var(--z-overlay) + 1);
+  }
+}
+
+/* Em telas muito estreitas, o tracker de seção compete por espaço com
+   identidade + botão de menu  recolhido para não apertar o header. */
+@media (max-width: 479px) {
+  .site-header__tracker {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   HERO
+   -------------------------------------------------------------------------- */
+
+/* Tablet: a divisão 8/4 fica apertada em larguras médias  o bloco de
+   metadata desce para abaixo do headline em vez de espremer ao lado. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  #hero .col-span-8 {
+    grid-column: span 12;
+  }
+
+  #hero .col-span-4 {
+    grid-column: span 12;
+    grid-column-start: 1;
+    align-self: start;
+    margin-top: var(--space-4);
+  }
+}
+
+@media (max-width: 599px) {
+  .hero__circle--primary,
+  .hero__circle--secondary {
+    opacity: 0.25;
+  }
+
+  .hero__circle--primary {
+    width: 70vw;
+    height: 70vw;
+    top: -8%;
+    right: -20%;
+  }
+
+  .hero__scroll-wrap {
+    bottom: var(--space-3);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ABOUT
+   O número de fundo (attr(data-index)) precisa reduzir de escala para não
+   colidir com o texto em colunas estreitas.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .section--about::before {
+    font-size: clamp(6rem, 32vw, 10rem);
+    right: 50%;
+    transform: translate(50%, -50%);
+    opacity: 0.6;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PROJECTS
+   Abaixo do desktop, o efeito de imagem sangrando um lado + texto do outro
+   fica apertado  cada projeto passa a ser: imagem full-width (proporção
+   mais vertical, 4:5) seguida do texto, sempre na mesma ordem de leitura,
+   sem "bleed" lateral que force scroll horizontal indesejado.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+  .section--projects .project [class*="col-span-"] {
+    grid-column: span 12;
+    grid-column-start: 1;
+  }
+
+  .section--projects .bleed-left,
+  .section--projects .bleed-right {
+    margin-inline: 0;
+    width: 100%;
+  }
+
+  .project__media {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   STACK
+   Tablet: 2 categorias por linha em vez de 4 espremidas. Mobile (<600px):
+   já empilha em coluna única via grid mobile-first  sem overrides extras,
+   apenas trocar a hairline vertical por uma horizontal (mais natural numa
+   pilha vertical de blocos).
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  #stack .col-start-5 { grid-column: span 6; grid-column-start: 1; }
+  #stack .col-start-7 { grid-column: span 6; grid-column-start: 7; margin-top: 0; }
+  #stack .col-start-9 { grid-column: span 6; grid-column-start: 1; margin-top: var(--space-4); }
+  #stack .col-start-11 { grid-column: span 6; grid-column-start: 7; margin-top: var(--space-4); }
+}
+
+@media (max-width: 599px) {
+  .stack-category {
+    padding-left: 0;
+    padding-top: var(--space-2);
+    border-left: none;
+    border-top: var(--border-hairline);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   EXPERIENCE
+   Linha tabular vira bloco empilhado: período, empresa e cargo em sequência
+   vertical, com respiro entre eles (o grid mobile-first já empilha as
+   colunas  só falta o espaçamento entre os itens que antes ficavam lado a
+   lado na mesma linha).
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 599px) {
+  .experience__row > * + * {
+    margin-top: var(--space-1);
+  }
+
+  .experience__company {
+    font-size: var(--fs-heading);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   CONTACT
+   Mesma lógica do Hero: em tablet, o bloco de contato desce para abaixo do
+   headline em vez de espremer numa coluna lateral estreita.
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  #contact .col-span-8 {
+    grid-column: span 12;
+  }
+
+  #contact .col-span-3 {
+    grid-column: span 12;
+    grid-column-start: 1;
+    align-self: start;
+    margin-top: var(--space-4);
+  }
+}
+
+@media (max-width: 599px) {
+  .contact__circle {
+    width: 60vw;
+    height: 60vw;
+    opacity: 0.25;
+  }
+
+  .contact__headline {
+    max-width: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER
+   Em telas estreitas, empilha em vez de espremer os dois itens na mesma
+   linha (row-between já existe; aqui só ajustamos o alinhamento).
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 479px) {
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+}
+
+@media (max-width: 899px) {
+  .projects__intro {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .projects__intro-copy {
+    max-width: 38rem;
+  }
+}
+
+@media (max-width: 699px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card__body {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .project-card__description {
+    max-width: none;
+  }
+}
+
+/* Final responsive polish */
+@media (max-width: 1023px) {
+  .hero__portrait-wrap {
+    right: 4vw;
+    width: min(38vw, 390px);
+  }
+
+  .section--hero > .container {
+    padding-right: clamp(1.5rem, 5vw, 4rem);
+  }
+
+  .projects__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-card:nth-child(2),
+  .project-card:nth-child(4),
+  .project-card:nth-child(6) {
+    margin-top: 2rem;
+  }
+
+  .process__row {
+    grid-template-columns: 1fr;
+    row-gap: 0.75rem;
+  }
+
+  .process__main.col-span-5,
+  .process__tag.col-span-3 {
+    grid-column: 1 / -1;
+  }
+
+  .process__tag {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero__portrait-wrap {
+    top: 38%;
+    right: -8%;
+    width: min(76vw, 430px);
+    opacity: 0.72;
+  }
+
+  .hero__portrait-frame {
+    border-radius: 50%;
+    box-shadow: 0 18px 65px rgba(0,0,0,0.4);
+  }
+
+  .section--hero > .container {
+    position: relative;
+  }
+
+  .section--hero .col-span-8 {
+    position: relative;
+    z-index: 4;
+  }
+
+  .hero__headline {
+    max-width: 10ch;
+    font-size: clamp(3.5rem, 14vw, 5.8rem);
+  }
+
+  .hero__editorial-line {
+    max-width: 31ch;
+  }
+
+  .projects__grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .project-card:nth-child(2),
+  .project-card:nth-child(4),
+  .project-card:nth-child(6) {
+    margin-top: 0;
+  }
+
+  .project-card__body {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .project-card__description {
+    max-width: 32ch;
+  }
+
+  .project-card__stack {
+    grid-column: auto;
+  }
+
+  .process-intro {
+    row-gap: 2rem;
+  }
+
+  .process-intro > .col-span-5 {
+    grid-column: 1 / -1;
+  }
+
+  .contact__headline {
+    max-width: 9ch;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero__portrait-wrap {
+    top: 35%;
+    right: -18%;
+    width: 92vw;
+    opacity: 0.58;
+  }
+
+  .hero__meta-block {
+    margin-top: 2rem;
+  }
+
+  .section--projects .projects__intro-copy {
+    max-width: 31ch;
+  }
+}

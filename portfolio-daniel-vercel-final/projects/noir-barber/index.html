@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noir Barber | Barbearia Premium</title>
+<meta name="description" content="Noir Barber — Barbearia premium especializada em cortes masculinos, barba e cuidados personalizados. Agende seu horário.">
+<meta name="keywords" content="barbearia, barbearia premium, corte masculino, barba, degradê, agendamento barbearia, Noir Barber">
+<meta name="author" content="Noir Barber">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Noir Barber | Barbearia Premium">
+<meta property="og:description" content="Seu estilo. Sua identidade. Agende seu horário na Noir Barber.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   NOIR BARBER — Stylesheet
+   Design tokens: preto/carvão + branco quente + dourado, serif editorial
+   + sans utilitária. Assinatura visual: divisor "lâmina" e grão de fundo.
+   ========================================================================== */
+
+:root {
+  /* Cores */
+  --c-black: #0a0908;
+  --c-charcoal: #17150f;
+  --c-charcoal-2: #201d16;
+  --c-gray: #3a362c;
+  --c-gray-text: #a7a094;
+  --c-white: #f4f0e6;
+  --c-white-dim: #d9d3c4;
+  --c-gold: #c9a24b;
+  --c-gold-light: #e6cd8e;
+  --c-gold-dark: #8f7333;
+
+  /* Tipografia */
+  --f-display: 'Cormorant Garamond', serif;
+  --f-body: 'Jost', sans-serif;
+  --f-mono: 'Space Mono', monospace;
+
+  /* Espaçamento */
+  --section-pad: 7rem;
+  --container-w: 1200px;
+
+  /* Sombras / bordas */
+  --shadow-soft: 0 20px 50px rgba(0,0,0,0.45);
+  --radius: 4px;
+
+  --transition: 0.35s cubic-bezier(.25,.8,.25,1);
+}
+
+/* ============ RESET ============ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--c-black);
+  color: var(--c-white);
+  font-family: var(--f-body);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+ul { list-style: none; }
+
+button { font: inherit; cursor: pointer; background: none; border: none; color: inherit; }
+
+svg { width: 100%; height: 100%; display: block; }
+
+.container {
+  width: 100%;
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+::selection { background: var(--c-gold); color: var(--c-black); }
+
+:focus-visible {
+  outline: 2px solid var(--c-gold);
+  outline-offset: 3px;
+}
+
+/* Respeitar preferências de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============ TIPOGRAFIA GERAL ============ */
+h1, h2, h3 {
+  font-family: var(--f-display);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--c-white);
+}
+
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+}
+
+.section-subtitle {
+  color: var(--c-gray-text);
+  max-width: 560px;
+  font-size: 1rem;
+}
+
+.section-head {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem;
+}
+
+.section-head .section-subtitle { margin: 0 auto; }
+
+/* ============ BOTÕES ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 2rem;
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+  white-space: nowrap;
+}
+
+.btn--gold {
+  background: linear-gradient(135deg, var(--c-gold-light), var(--c-gold-dark));
+  color: var(--c-black);
+  font-weight: 700;
+}
+.btn--gold:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(201,162,75,0.35); }
+
+.btn--outline {
+  border-color: var(--c-gold);
+  color: var(--c-white);
+}
+.btn--outline:hover { background: var(--c-gold); color: var(--c-black); transform: translateY(-2px); }
+
+.btn--sm { padding: 0.65rem 1.3rem; font-size: 0.68rem; }
+.btn--lg { padding: 1.2rem 2.8rem; font-size: 0.85rem; }
+
+.btn--header { display: none; }
+@media (min-width: 1000px) {
+  .btn--header { display: inline-flex; }
+}
+
+/* ============ HEADER ============ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  padding: 1.1rem 0;
+  background: rgba(10,9,8,0.0);
+  transition: background var(--transition), padding var(--transition), box-shadow var(--transition), border-color var(--transition);
+  border-bottom: 1px solid transparent;
+}
+
+.header.is-scrolled {
+  background: rgba(10,9,8,0.92);
+  backdrop-filter: blur(10px);
+  padding: 0.7rem 0;
+  border-color: rgba(201,162,75,0.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.95;
+  font-family: var(--f-display);
+}
+.logo__line1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--c-white);
+}
+.logo__line2 {
+  font-size: 0.68rem;
+  font-family: var(--f-mono);
+  letter-spacing: 0.4em;
+  color: var(--c-gold);
+}
+
+.nav { display: none; }
+@media (min-width: 1000px) {
+  .nav { display: block; }
+}
+.nav__list {
+  display: flex;
+  gap: 2.1rem;
+}
+.nav__link {
+  font-family: var(--f-mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--c-white-dim);
+  position: relative;
+  padding-bottom: 4px;
+  transition: color var(--transition);
+}
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 1px;
+  background: var(--c-gold);
+  transition: width var(--transition);
+}
+.nav__link:hover { color: var(--c-white); }
+.nav__link:hover::after { width: 100%; }
+
+/* Hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 30px;
+  height: 24px;
+}
+@media (min-width: 1000px) {
+  .hamburger { display: none; }
+}
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--c-white);
+  transition: transform var(--transition), opacity var(--transition), background var(--transition);
+}
+.hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 490;
+  background: rgba(10,9,8,0.98);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.2rem;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform var(--transition), opacity var(--transition);
+  padding: 2rem;
+}
+.mobile-menu.is-open {
+  transform: translateY(0);
+  opacity: 1;
+}
+.mobile-menu__list {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.mobile-menu__link {
+  font-family: var(--f-display);
+  font-size: 1.7rem;
+  color: var(--c-white);
+}
+.mobile-menu__link:hover { color: var(--c-gold); }
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(160deg, rgba(10,9,8,0.55), rgba(10,9,8,0.85)),
+    url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1800&q=75');
+  background-size: cover;
+  background-position: center 30%;
+  background-color: var(--c-charcoal);
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 20%, rgba(201,162,75,0.10), transparent 55%),
+              linear-gradient(180deg, rgba(10,9,8,0.15) 0%, rgba(10,9,8,0.55) 75%, var(--c-black) 100%);
+}
+
+.hero__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding-top: 6rem;
+}
+
+.hero__title {
+  font-size: clamp(2.6rem, 8vw, 5.4rem);
+  line-height: 0.98;
+  margin-bottom: 1.6rem;
+}
+.hero__title-line { display: block; }
+.hero__title-line--gold {
+  background: linear-gradient(120deg, var(--c-gold-light), var(--c-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__text {
+  max-width: 480px;
+  color: var(--c-white-dim);
+  font-size: 1.05rem;
+  margin-bottom: 2.3rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+.hero__stats {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+}
+.stat { display: flex; flex-direction: column; }
+.stat__number {
+  font-family: var(--f-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--c-gold);
+  line-height: 1;
+}
+.stat__label {
+  font-family: var(--f-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  color: var(--c-gray-text);
+  margin-top: 0.4rem;
+  text-transform: uppercase;
+}
+.stat__divider {
+  width: 1px;
+  height: 34px;
+  background: rgba(201,162,75,0.3);
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.hero__scroll-line {
+  display: block;
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(var(--c-gold), transparent);
+  position: relative;
+  overflow: hidden;
+}
+.hero__scroll-line::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--c-gold-light);
+  animation: scrollLine 2.2s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0% { top: -100%; }
+  60% { top: 100%; }
+  100% { top: 100%; }
+}
+
+/* ============ DIVISOR LÂMINA (elemento assinatura) ============ */
+.blade-divider {
+  position: relative;
+  height: 40px;
+  background: var(--c-black);
+  overflow: hidden;
+}
+.blade-divider__svg { width: 100%; height: 100%; }
+.blade-divider__path {
+  fill: none;
+  stroke: var(--c-gold);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  transition: stroke-dashoffset 1.4s ease;
+}
+.blade-divider.is-visible .blade-divider__path { stroke-dashoffset: 0; }
+
+/* ============ SOBRE ============ */
+.about {
+  padding: var(--section-pad) 0;
+  background: var(--c-black);
+}
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .about__grid { grid-template-columns: 0.9fr 1.1fr; gap: 5rem; }
+}
+
+.about__media { position: relative; }
+.about__img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: var(--radius);
+  filter: grayscale(15%) contrast(1.05);
+}
+.about__media-frame {
+  position: absolute;
+  top: 18px; left: 18px;
+  right: -18px; bottom: -18px;
+  border: 1px solid var(--c-gold);
+  border-radius: var(--radius);
+  z-index: -1;
+}
+.about__badge {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1rem;
+  background: var(--c-charcoal);
+  border: 1px solid rgba(201,162,75,0.35);
+  padding: 1.2rem 1.4rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  max-width: 170px;
+}
+.about__badge-number {
+  display: block;
+  font-family: var(--f-display);
+  font-size: 2rem;
+  color: var(--c-gold);
+  line-height: 1;
+}
+.about__badge-label {
+  font-family: var(--f-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  color: var(--c-gray-text);
+  text-transform: uppercase;
+}
+
+.about__text {
+  color: var(--c-white-dim);
+  margin-bottom: 1.4rem;
+  max-width: 520px;
+}
+.about__quote {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--c-gold-light);
+  margin-bottom: 2.2rem;
+}
+.about__stats {
+  display: flex;
+  gap: 2.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.4rem;
+  padding: 1.6rem 0;
+  border-top: 1px solid var(--c-gray);
+  border-bottom: 1px solid var(--c-gray);
+}
+.about__stat-number {
+  display: block;
+  font-family: var(--f-display);
+  font-size: 1.8rem;
+  color: var(--c-white);
+}
+.about__stat-label {
+  font-family: var(--f-mono);
+  font-size: 0.62rem;
+  color: var(--c-gray-text);
+  text-transform: uppercase;
+}
+
+/* Fallback visual se imagem não carregar */
+.img-fallback {
+  background: linear-gradient(135deg, var(--c-charcoal-2), var(--c-black));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-fallback::before {
+  content: 'NOIR BARBER';
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--c-gold-dark);
+}
+
+/* ============ SERVIÇOS ============ */
+.services { padding: var(--section-pad) 0; background: var(--c-charcoal); }
+
+.services__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+}
+@media (min-width: 640px) {
+  .services__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .services__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.service-card {
+  position: relative;
+  background: var(--c-charcoal-2);
+  border: 1px solid rgba(201,162,75,0.12);
+  border-radius: var(--radius);
+  padding: 2.2rem 1.8rem;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201,162,75,0.5);
+  box-shadow: var(--shadow-soft);
+}
+.service-card--featured {
+  border-color: var(--c-gold);
+  background: linear-gradient(160deg, rgba(201,162,75,0.09), var(--c-charcoal-2) 60%);
+}
+.service-card__tag {
+  position: absolute;
+  top: -12px; right: 1.4rem;
+  background: var(--c-gold);
+  color: var(--c-black);
+  font-family: var(--f-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.7rem;
+  border-radius: 3px;
+  font-weight: 700;
+}
+.service-card__icon {
+  width: 42px; height: 42px;
+  color: var(--c-gold);
+  margin-bottom: 1.3rem;
+}
+.service-card__title {
+  font-size: 1.35rem;
+  margin-bottom: 0.6rem;
+}
+.service-card__desc {
+  color: var(--c-gray-text);
+  font-size: 0.9rem;
+  margin-bottom: 1.6rem;
+  min-height: 42px;
+}
+.service-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--c-gray);
+}
+.service-card__price {
+  font-family: var(--f-display);
+  font-size: 1.5rem;
+  color: var(--c-gold);
+  font-weight: 600;
+}
+
+/* ============ BARBEIROS ============ */
+.barbers { padding: var(--section-pad) 0; background: var(--c-black); }
+
+.barbers__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 700px) {
+  .barbers__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.barber-card {
+  text-align: center;
+  background: var(--c-charcoal);
+  border-radius: var(--radius);
+  padding: 2rem 1.6rem 2.2rem;
+  border: 1px solid rgba(201,162,75,0.1);
+  transition: transform var(--transition), border-color var(--transition);
+}
+.barber-card:hover { transform: translateY(-6px); border-color: rgba(201,162,75,0.4); }
+
+.barber-card__photo {
+  width: 130px; height: 130px;
+  margin: 0 auto 1.4rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--c-gold);
+  padding: 4px;
+}
+.barber-card__photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: grayscale(20%);
+}
+.barber-card__photo.img-fallback::before { font-size: 0.55rem; }
+
+.barber-card__name {
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+.barber-card__role {
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--c-gold);
+  text-transform: uppercase;
+  margin-bottom: 1.1rem;
+}
+.barber-card__social {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-bottom: 1.6rem;
+}
+.barber-card__social a {
+  width: 30px; height: 30px;
+  color: var(--c-white-dim);
+  transition: color var(--transition), transform var(--transition);
+}
+.barber-card__social a:hover { color: var(--c-gold); transform: translateY(-2px); }
+
+/* ============ GALERIA ============ */
+.gallery { padding: var(--section-pad) 0; background: var(--c-charcoal); }
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+}
+@media (min-width: 640px) {
+  .gallery__grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1000px) {
+  .gallery__grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.gallery__item {
+  position: relative;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.gallery__item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: grayscale(25%) brightness(0.88);
+}
+.gallery__item::after {
+  content: '+';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-display);
+  font-size: 2.2rem;
+  color: var(--c-gold-light);
+  background: rgba(10,9,8,0.45);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.gallery__item:hover img { transform: scale(1.08); filter: grayscale(0%) brightness(1); }
+.gallery__item:hover::after { opacity: 1; }
+.gallery__item.img-fallback img { display: none; }
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: rgba(6,5,4,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.lightbox[hidden] { display: none; }
+.lightbox.is-open { opacity: 1; }
+.lightbox__img {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+.lightbox__close {
+  position: absolute;
+  top: 1.6rem; right: 1.8rem;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--c-white);
+  transition: color var(--transition), transform var(--transition);
+}
+.lightbox__close:hover { color: var(--c-gold); transform: rotate(90deg); }
+
+/* ============ DIFERENCIAIS ============ */
+.perks { padding: var(--section-pad) 0; background: var(--c-black); }
+.perks__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.4rem;
+}
+@media (min-width: 640px) {
+  .perks__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .perks__grid { grid-template-columns: repeat(4, 1fr); }
+}
+.perk { text-align: left; }
+.perk__icon {
+  width: 44px; height: 44px;
+  color: var(--c-gold);
+  margin-bottom: 1.2rem;
+}
+.perk__title {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+.perk__text {
+  color: var(--c-gray-text);
+  font-size: 0.9rem;
+}
+
+/* ============ DEPOIMENTOS ============ */
+.testimonials { padding: var(--section-pad) 0; background: var(--c-charcoal); }
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+}
+@media (min-width: 800px) {
+  .testimonials__grid { grid-template-columns: repeat(3, 1fr); }
+}
+.testimonial {
+  background: var(--c-charcoal-2);
+  border: 1px solid rgba(201,162,75,0.1);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+.testimonial__stars {
+  color: var(--c-gold);
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+}
+.testimonial__text {
+  font-family: var(--f-display);
+  font-size: 1.15rem;
+  color: var(--c-white-dim);
+  margin-bottom: 1.4rem;
+  font-style: italic;
+}
+.testimonial__author {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--c-gold);
+  font-style: normal;
+}
+.testimonials__note {
+  text-align: center;
+  margin-top: 2.4rem;
+  font-size: 0.75rem;
+  color: var(--c-gray-text);
+  font-family: var(--f-mono);
+}
+
+/* ============ CTA ============ */
+.cta {
+  position: relative;
+  padding: 6rem 0;
+  text-align: center;
+  background: linear-gradient(160deg, var(--c-charcoal-2), var(--c-black));
+  overflow: hidden;
+}
+.cta__grain {
+  position: absolute; inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.cta__content { position: relative; z-index: 1; }
+.cta__title {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+}
+.cta__text {
+  color: var(--c-white-dim);
+  max-width: 480px;
+  margin: 0 auto 2.2rem;
+}
+
+/* ============ CONTATO ============ */
+.contact { padding: var(--section-pad) 0; background: var(--c-black); }
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+@media (min-width: 900px) {
+  .contact__grid { grid-template-columns: 1.1fr 0.9fr; align-items: center; }
+}
+.contact__list {
+  margin: 2rem 0 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.contact__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  color: var(--c-white-dim);
+}
+.contact__list em { color: var(--c-gray-text); font-style: normal; font-size: 0.8rem; }
+.contact__icon {
+  width: 22px; height: 22px;
+  color: var(--c-gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.contact__map-placeholder {
+  aspect-ratio: 4/3;
+  border-radius: var(--radius);
+  border: 1px dashed rgba(201,162,75,0.35);
+  background: var(--c-charcoal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--c-gray-text);
+  text-align: center;
+  padding: 2rem;
+}
+.contact__map-placeholder svg { width: 40px; height: 40px; color: var(--c-gold); }
+
+/* ============ FOOTER ============ */
+.footer { background: var(--c-charcoal); border-top: 1px solid rgba(201,162,75,0.12); padding-top: 4rem; }
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.6rem;
+  padding-bottom: 3rem;
+}
+@media (min-width: 700px) {
+  .footer__grid { grid-template-columns: 1.4fr 1fr 1fr; }
+}
+.logo--footer { margin-bottom: 0.8rem; }
+.footer__tagline {
+  color: var(--c-gray-text);
+  font-family: var(--f-display);
+  font-style: italic;
+}
+.footer__heading {
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  margin-bottom: 1.1rem;
+}
+.footer__nav ul { display: flex; flex-direction: column; gap: 0.7rem; }
+.footer__nav a { color: var(--c-white-dim); transition: color var(--transition); }
+.footer__nav a:hover { color: var(--c-gold); }
+.footer__social em { font-size: 0.65rem; color: var(--c-gray-text); font-style: normal; }
+.footer__social-icons { display: flex; gap: 1rem; margin-top: 0.6rem; }
+.footer__social-icons a {
+  width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(201,162,75,0.25);
+  border-radius: 50%;
+  color: var(--c-white-dim);
+  transition: all var(--transition);
+}
+.footer__social-icons a svg { width: 16px; height: 16px; }
+.footer__social-icons a:hover { border-color: var(--c-gold); color: var(--c-gold); transform: translateY(-2px); }
+
+.footer__bottom {
+  border-top: 1px solid rgba(201,162,75,0.1);
+  padding: 1.6rem 1.5rem 2rem;
+  text-align: center;
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  color: var(--c-gray-text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* ============ BACK TO TOP ============ */
+.back-to-top {
+  position: fixed;
+  bottom: 1.6rem;
+  right: 1.6rem;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--c-gold);
+  color: var(--c-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all var(--transition);
+  z-index: 400;
+}
+.back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top svg { width: 18px; height: 18px; }
+
+/* ============ ANIMAÇÕES DE ENTRADA (scroll reveal) ============ */
+[data-aos] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+[data-aos].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Sem scroll horizontal em nenhuma largura */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+</style>
+</head>
+<body>
+
+<!-- =============== HEADER =============== -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#topo" class="logo" aria-label="Noir Barber - Início">
+      <span class="logo__line1">NOIR</span>
+      <span class="logo__line2">BARBER</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Navegação principal">
+      <ul class="nav__list">
+        <li><a href="#topo" class="nav__link">Início</a></li>
+        <li><a href="#sobre" class="nav__link">Sobre</a></li>
+        <li><a href="#servicos" class="nav__link">Serviços</a></li>
+        <li><a href="#barbeiros" class="nav__link">Barbeiros</a></li>
+        <li><a href="#galeria" class="nav__link">Galeria</a></li>
+        <li><a href="#depoimentos" class="nav__link">Depoimentos</a></li>
+        <li><a href="#contato" class="nav__link">Contato</a></li>
+      </ul>
+    </nav>
+
+    <a href="#" class="btn btn--gold btn--header js-whatsapp" aria-label="Agendar horário pelo WhatsApp">Agendar Horário</a>
+
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-menu__list">
+    <li><a href="#topo" class="mobile-menu__link">Início</a></li>
+    <li><a href="#sobre" class="mobile-menu__link">Sobre</a></li>
+    <li><a href="#servicos" class="mobile-menu__link">Serviços</a></li>
+    <li><a href="#barbeiros" class="mobile-menu__link">Barbeiros</a></li>
+    <li><a href="#galeria" class="mobile-menu__link">Galeria</a></li>
+    <li><a href="#depoimentos" class="mobile-menu__link">Depoimentos</a></li>
+    <li><a href="#contato" class="mobile-menu__link">Contato</a></li>
+  </ul>
+  <a href="#" class="btn btn--gold js-whatsapp">Agendar pelo WhatsApp</a>
+</div>
+
+<main>
+
+  <!-- =============== HERO =============== -->
+  <section class="hero" id="topo">
+    <div class="hero__bg" role="img" aria-label="Interior elegante de uma barbearia premium com cadeiras de couro e iluminação dourada"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__grain"></div>
+
+    <div class="container hero__content">
+      <p class="eyebrow" data-aos>Barbearia Premium — desde 2019</p>
+      <h1 class="hero__title" data-aos>
+        <span class="hero__title-line">SEU ESTILO.</span>
+        <span class="hero__title-line hero__title-line--gold">SUA IDENTIDADE.</span>
+      </h1>
+      <p class="hero__text" data-aos>
+        Mais do que um corte. Uma experiência criada para homens que valorizam estilo, precisão e personalidade.
+      </p>
+
+      <div class="hero__actions" data-aos>
+        <a href="#" class="btn btn--gold js-whatsapp">Agendar Horário</a>
+        <a href="#sobre" class="btn btn--outline">Conhecer a Barbearia</a>
+      </div>
+
+      <div class="hero__stats" data-aos>
+        <div class="stat">
+          <span class="stat__number">+5</span>
+          <span class="stat__label">Anos de<br>Experiência</span>
+        </div>
+        <div class="stat__divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat__number">+2.000</span>
+          <span class="stat__label">Clientes<br>Atendidos</span>
+        </div>
+        <div class="stat__divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat__number">5.0</span>
+          <span class="stat__label">Avaliação<br>dos Clientes</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="#sobre" class="hero__scroll" aria-label="Rolar para a seção Sobre">
+      <span class="hero__scroll-line"></span>
+    </a>
+  </section>
+
+  <!-- Divisor assinatura: lâmina dourada -->
+  <div class="blade-divider" aria-hidden="true">
+    <svg viewBox="0 0 1200 40" preserveAspectRatio="none" class="blade-divider__svg">
+      <path class="blade-divider__path" d="M0,20 L520,20 L545,5 L565,35 L585,20 L1200,20"></path>
+    </svg>
+  </div>
+
+  <!-- =============== SOBRE =============== -->
+  <section class="about" id="sobre">
+    <div class="container about__grid">
+      <div class="about__media" data-aos>
+        <img
+          src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=80"
+          alt="Barbeiro finalizando o corte de um cliente na Noir Barber"
+          class="about__img"
+          loading="lazy"
+          onerror="this.parentElement.classList.add('img-fallback'); this.style.display='none';">
+        <div class="about__media-frame" aria-hidden="true"></div>
+        <div class="about__badge">
+          <span class="about__badge-number">08+</span>
+          <span class="about__badge-label">anos de tradição<br>em barbearia</span>
+        </div>
+      </div>
+
+      <div class="about__content">
+        <p class="eyebrow" data-aos>Sobre a Noir Barber</p>
+        <h2 class="section-title" data-aos>MAIS QUE UMA BARBEARIA</h2>
+        <p class="about__text" data-aos>
+          A Noir Barber nasceu para transformar o tradicional cuidado masculino em uma experiência completa.
+          Unimos técnicas clássicas, tendências modernas e atenção aos detalhes para entregar um resultado
+          que representa cada cliente.
+        </p>
+        <p class="about__quote" data-aos>"Precisão em cada detalhe."</p>
+
+        <div class="about__stats" data-aos>
+          <div class="about__stat">
+            <span class="about__stat-number">12</span>
+            <span class="about__stat-label">Serviços especializados</span>
+          </div>
+          <div class="about__stat">
+            <span class="about__stat-number">3</span>
+            <span class="about__stat-label">Barbeiros profissionais</span>
+          </div>
+          <div class="about__stat">
+            <span class="about__stat-number">100%</span>
+            <span class="about__stat-label">Foco na experiência</span>
+          </div>
+        </div>
+
+        <a href="#servicos" class="btn btn--outline" data-aos>Ver Serviços</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== SERVIÇOS =============== -->
+  <section class="services" id="servicos">
+    <div class="container">
+      <div class="section-head" data-aos>
+        <p class="eyebrow">O que fazemos</p>
+        <h2 class="section-title">NOSSOS SERVIÇOS</h2>
+        <p class="section-subtitle">Cada serviço é executado com técnica, cuidado e atenção aos detalhes que fazem a diferença.</p>
+      </div>
+
+      <div class="services__grid">
+
+        <article class="service-card" data-aos>
+          <div class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M6 24c6-14 30-14 36 0-6 14-30 14-36 0z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="service-card__title">Corte Tradicional</h3>
+          <p class="service-card__desc">Corte personalizado realizado de acordo com seu estilo.</p>
+          <div class="service-card__footer">
+            <span class="service-card__price">R$ 45</span>
+            <a href="#" class="btn btn--sm js-whatsapp">Agendar</a>
+          </div>
+        </article>
+
+        <article class="service-card" data-aos>
+          <div class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M10 30c2 8 10 12 14 12s12-4 14-12" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 22c4-10 28-10 32 0" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="service-card__title">Corte + Barba</h3>
+          <p class="service-card__desc">Experiência completa com corte e acabamento de barba.</p>
+          <div class="service-card__footer">
+            <span class="service-card__price">R$ 70</span>
+            <a href="#" class="btn btn--sm js-whatsapp">Agendar</a>
+          </div>
+        </article>
+
+        <article class="service-card service-card--featured" data-aos>
+          <span class="service-card__tag">Mais pedido</span>
+          <div class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M10 30c2 8 10 12 14 12s12-4 14-12" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="service-card__title">Barba Premium</h3>
+          <p class="service-card__desc">Modelagem, acabamento e tratamento para uma barba impecável.</p>
+          <div class="service-card__footer">
+            <span class="service-card__price">R$ 40</span>
+            <a href="#" class="btn btn--sm js-whatsapp">Agendar</a>
+          </div>
+        </article>
+
+        <article class="service-card" data-aos>
+          <div class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M8 12h32M8 24h32M8 36h20" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="service-card__title">Degradê</h3>
+          <p class="service-card__desc">Degradê preciso com acabamento profissional.</p>
+          <div class="service-card__footer">
+            <span class="service-card__price">R$ 50</span>
+            <a href="#" class="btn btn--sm js-whatsapp">Agendar</a>
+          </div>
+        </article>
+
+        <article class="service-card" data-aos>
+          <div class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M10 30c4-10 12-10 14-14 2 4 10 4 14 14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="service-card__title">Sobrancelha</h3>
+          <p class="service-card__desc">Design e acabamento para complementar seu visual.</p>
+          <div class="service-card__footer">
+            <span class="service-card__price">R$ 20</span>
+            <a href="#" class="btn btn--sm js-whatsapp">Agendar</a>
+          </div>
+        </article>
+
+        <article class="service-card" data-aos>
+          <div class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M24 6l4 12h13l-10 8 4 13-11-8-11 8 4-13-10-8h13z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="service-card__title">Combo Noir</h3>
+          <p class="service-card__desc">Corte, barba e acabamento completo.</p>
+          <div class="service-card__footer">
+            <span class="service-card__price">R$ 90</span>
+            <a href="#" class="btn btn--sm js-whatsapp">Agendar</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== BARBEIROS =============== -->
+  <section class="barbers" id="barbeiros">
+    <div class="container">
+      <div class="section-head" data-aos>
+        <p class="eyebrow">Nossa equipe</p>
+        <h2 class="section-title">QUEM CUIDA DO SEU ESTILO</h2>
+        <p class="section-subtitle">Profissionais fictícios criados para fins de demonstração deste portfólio.</p>
+      </div>
+
+      <div class="barbers__grid">
+
+        <article class="barber-card" data-aos>
+          <div class="barber-card__photo">
+            <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=500&q=80"
+                 alt="Lucas Almeida, barbeiro especialista em degradê"
+                 loading="lazy"
+                 onerror="this.parentElement.classList.add('img-fallback'); this.style.display='none';">
+          </div>
+          <h3 class="barber-card__name">Lucas Almeida</h3>
+          <p class="barber-card__role">Especialista em Degradê</p>
+          <div class="barber-card__social" aria-label="Redes sociais de Lucas Almeida (fictícias)">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V5.5h-3C11.8 5.5 10 7.3 10 9.5V12H7v3.5h3V21h3.5v-5.5H16l.6-3.5h-3.1V9.8c0-.6.4-.8.8-.8z" fill="currentColor"/></svg></a>
+          </div>
+          <a href="#" class="btn btn--outline btn--sm js-whatsapp">Agendar com este barbeiro</a>
+        </article>
+
+        <article class="barber-card" data-aos>
+          <div class="barber-card__photo">
+            <img src="https://images.unsplash.com/photo-1618077360395-f3068be8e001?auto=format&fit=crop&w=500&q=80"
+                 alt="Rafael Costa, barbeiro especialista em barba"
+                 loading="lazy"
+                 onerror="this.parentElement.classList.add('img-fallback'); this.style.display='none';">
+          </div>
+          <h3 class="barber-card__name">Rafael Costa</h3>
+          <p class="barber-card__role">Especialista em Barba</p>
+          <div class="barber-card__social" aria-label="Redes sociais de Rafael Costa (fictícias)">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 4v9.5a3 3 0 1 1-2-2.83V9.4A5 5 0 1 0 16 14V9.8a6.3 6.3 0 0 0 4 1.4V8.6A4 4 0 0 1 16.5 5H14z" fill="currentColor"/></svg></a>
+          </div>
+          <a href="#" class="btn btn--outline btn--sm js-whatsapp">Agendar com este barbeiro</a>
+        </article>
+
+        <article class="barber-card" data-aos>
+          <div class="barber-card__photo">
+            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=500&q=80"
+                 alt="Gabriel Martins, barbeiro especialista em cortes clássicos"
+                 loading="lazy"
+                 onerror="this.parentElement.classList.add('img-fallback'); this.style.display='none';">
+          </div>
+          <h3 class="barber-card__name">Gabriel Martins</h3>
+          <p class="barber-card__role">Especialista em Cortes Clássicos</p>
+          <div class="barber-card__social" aria-label="Redes sociais de Gabriel Martins (fictícias)">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V5.5h-3C11.8 5.5 10 7.3 10 9.5V12H7v3.5h3V21h3.5v-5.5H16l.6-3.5h-3.1V9.8c0-.6.4-.8.8-.8z" fill="currentColor"/></svg></a>
+          </div>
+          <a href="#" class="btn btn--outline btn--sm js-whatsapp">Agendar com este barbeiro</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== GALERIA =============== -->
+  <section class="gallery" id="galeria">
+    <div class="container">
+      <div class="section-head" data-aos>
+        <p class="eyebrow">Portfólio visual</p>
+        <h2 class="section-title">NOSSA GALERIA</h2>
+        <p class="section-subtitle">Cortes, barbas, ambiente e detalhes que traduzem a essência da Noir Barber.</p>
+      </div>
+
+      <div class="gallery__grid">
+        <button class="gallery__item js-gallery-item" data-full="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1400&q=80" aria-label="Ampliar imagem: corte de cabelo masculino">
+          <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=70" alt="Corte de cabelo masculino moderno" loading="lazy" onerror="this.closest('.gallery__item').classList.add('img-fallback')">
+        </button>
+        <button class="gallery__item js-gallery-item" data-full="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1400&q=80" aria-label="Ampliar imagem: acabamento de barba">
+          <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=70" alt="Acabamento de barba profissional" loading="lazy" onerror="this.closest('.gallery__item').classList.add('img-fallback')">
+        </button>
+        <button class="gallery__item js-gallery-item" data-full="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1400&q=80" aria-label="Ampliar imagem: ambiente da barbearia">
+          <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=70" alt="Ambiente interno da barbearia" loading="lazy" onerror="this.closest('.gallery__item').classList.add('img-fallback')">
+        </button>
+        <button class="gallery__item js-gallery-item" data-full="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1400&q=80" aria-label="Ampliar imagem: barbeiro trabalhando">
+          <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=600&q=70" alt="Barbeiro finalizando corte" loading="lazy" onerror="this.closest('.gallery__item').classList.add('img-fallback')">
+        </button>
+        <button class="gallery__item js-gallery-item" data-full="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1400&q=80" aria-label="Ampliar imagem: ferramentas de barbeiro">
+          <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=600&q=70" alt="Ferramentas profissionais de barbearia" loading="lazy" onerror="this.closest('.gallery__item').classList.add('img-fallback')">
+        </button>
+        <button class="gallery__item js-gallery-item" data-full="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=1400&q=80" aria-label="Ampliar imagem: degradê detalhado">
+          <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=600&q=70" alt="Degradê com acabamento detalhado" loading="lazy" onerror="this.closest('.gallery__item').classList.add('img-fallback')">
+        </button>
+        <button class="gallery__item js-gallery-item" data-full="https://images.unsplash.com/photo-1618077360395-f3068be8e001?auto=format&fit=crop&w=1400&q=80" aria-label="Ampliar imagem: barbeiro sorrindo">
+          <img src="https://images.unsplash.com/photo-1618077360395-f3068be8e001?auto=format&fit=crop&w=600&q=70" alt="Barbeiro da equipe Noir Barber" loading="lazy" onerror="this.closest('.gallery__item').classList.add('img-fallback')">
+        </button>
+        <button class="gallery__item js-gallery-item" data-full="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1400&q=80" aria-label="Ampliar imagem: detalhe da barbearia">
+          <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=600&q=70" alt="Detalhe decorativo da barbearia" loading="lazy" onerror="this.closest('.gallery__item').classList.add('img-fallback')">
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização ampliada da imagem" hidden>
+    <button class="lightbox__close" id="lightboxClose" aria-label="Fechar imagem ampliada">&times;</button>
+    <img src="" alt="" class="lightbox__img" id="lightboxImg">
+  </div>
+
+  <!-- =============== DIFERENCIAIS =============== -->
+  <section class="perks">
+    <div class="container">
+      <div class="section-head" data-aos>
+        <p class="eyebrow">Por que a Noir Barber</p>
+        <h2 class="section-title">NOSSOS DIFERENCIAIS</h2>
+      </div>
+
+      <div class="perks__grid">
+        <div class="perk" data-aos>
+          <div class="perk__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M24 4l6 12 13 2-9.5 9 2 13L24 34l-11.5 6 2-13L5 15l13-2z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="perk__title">Profissionais Especializados</h3>
+          <p class="perk__text">Barbeiros preparados para entregar precisão em cada corte.</p>
+        </div>
+
+        <div class="perk" data-aos>
+          <div class="perk__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><rect x="8" y="14" width="32" height="24" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 20h32" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="perk__title">Ambiente Premium</h3>
+          <p class="perk__text">Um espaço pensado para você relaxar e aproveitar a experiência.</p>
+        </div>
+
+        <div class="perk" data-aos>
+          <div class="perk__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 40c2-10 10-14 14-14s12 4 14 14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="perk__title">Atendimento Personalizado</h3>
+          <p class="perk__text">Cada corte é adaptado ao seu estilo e personalidade.</p>
+        </div>
+
+        <div class="perk" data-aos>
+          <div class="perk__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M18 6h12v8l6 6v22a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V20l6-6z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="perk__title">Produtos de Qualidade</h3>
+          <p class="perk__text">Utilizamos produtos selecionados para garantir o melhor acabamento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== DEPOIMENTOS =============== -->
+  <section class="testimonials" id="depoimentos">
+    <div class="container">
+      <div class="section-head" data-aos>
+        <p class="eyebrow">Depoimentos fictícios de demonstração</p>
+        <h2 class="section-title">QUEM EXPERIMENTA, VOLTA.</h2>
+      </div>
+
+      <div class="testimonials__grid">
+        <blockquote class="testimonial" data-aos>
+          <div class="testimonial__stars" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</div>
+          <p class="testimonial__text">"Atendimento impecável e o corte ficou exatamente como eu queria. Com certeza vou voltar."</p>
+          <cite class="testimonial__author">— João Pedro</cite>
+        </blockquote>
+
+        <blockquote class="testimonial" data-aos>
+          <div class="testimonial__stars" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</div>
+          <p class="testimonial__text">"Ambiente muito bonito, barbeiros excelentes e atendimento diferenciado."</p>
+          <cite class="testimonial__author">— Matheus Oliveira</cite>
+        </blockquote>
+
+        <blockquote class="testimonial" data-aos>
+          <div class="testimonial__stars" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</div>
+          <p class="testimonial__text">"Melhor experiência que já tive em uma barbearia. O acabamento é absurdo."</p>
+          <cite class="testimonial__author">— Lucas Henrique</cite>
+        </blockquote>
+      </div>
+
+      <p class="testimonials__note">* Depoimentos fictícios criados apenas para fins de demonstração deste projeto de portfólio.</p>
+    </div>
+  </section>
+
+  <!-- =============== CTA =============== -->
+  <section class="cta">
+    <div class="cta__grain" aria-hidden="true"></div>
+    <div class="container cta__content" data-aos>
+      <h2 class="cta__title">SEU PRÓXIMO CORTE COMEÇA AQUI.</h2>
+      <p class="cta__text">Agende seu horário e descubra uma nova experiência em cuidado masculino.</p>
+      <a href="#" class="btn btn--gold btn--lg js-whatsapp">Agendar pelo WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- =============== CONTATO =============== -->
+  <section class="contact" id="contato">
+    <div class="container contact__grid">
+      <div class="contact__info" data-aos>
+        <p class="eyebrow">Estamos aqui</p>
+        <h2 class="section-title">FALE CONOSCO</h2>
+
+        <ul class="contact__list">
+          <li>
+            <span class="contact__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            </span>
+            <span>Rua das Flores, 250 — São Paulo, SP <em>(endereço fictício)</em></span>
+          </li>
+          <li>
+            <span class="contact__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 5c0 8.3 6.7 15 15 15l3-4-6-3-2 2c-2.5-1.3-4.7-3.5-6-6l2-2-3-6z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            </span>
+            <span>(11) 99999-9999 <em>(número fictício)</em></span>
+          </li>
+          <li>
+            <span class="contact__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l4 2" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+            </span>
+            <span>Segunda a sábado — 09:00 às 20:00</span>
+          </li>
+        </ul>
+
+        <div class="contact__actions">
+          <a href="https://www.google.com/maps/search/?api=1&query=Rua+das+Flores+250+Sao+Paulo+SP" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Abrir no Google Maps</a>
+          <a href="#" class="btn btn--gold js-whatsapp">Falar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="contact__map" data-aos aria-hidden="true">
+        <div class="contact__map-placeholder">
+          <svg viewBox="0 0 24 24" width="40" height="40"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8z" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+          <span>Localização ilustrativa — endereço fictício para fins de portfólio</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =============== FOOTER =============== -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <span class="logo logo--footer">
+        <span class="logo__line1">NOIR</span>
+        <span class="logo__line2">BARBER</span>
+      </span>
+      <p class="footer__tagline">Seu estilo. Sua identidade.</p>
+    </div>
+
+    <nav class="footer__nav" aria-label="Links do rodapé">
+      <h4 class="footer__heading">Navegação</h4>
+      <ul>
+        <li><a href="#topo">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer__social">
+      <h4 class="footer__heading">Redes sociais <em>(fictícias)</em></h4>
+      <div class="footer__social-icons">
+        <a href="#" aria-label="Instagram (fictício)"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="Facebook (fictício)"><svg viewBox="0 0 24 24"><path d="M14 9h3V5.5h-3C11.8 5.5 10 7.3 10 9.5V12H7v3.5h3V21h3.5v-5.5H16l.6-3.5h-3.1V9.8c0-.6.4-.8.8-.8z" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="TikTok (fictício)"><svg viewBox="0 0 24 24"><path d="M14 4v9.5a3 3 0 1 1-2-2.83V9.4A5 5 0 1 0 16 14V9.8a6.3 6.3 0 0 0 4 1.4V8.6A4 4 0 0 1 16.5 5H14z" fill="currentColor"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <p>&copy; 2026 Noir Barber. Todos os direitos reservados.</p>
+    <p class="footer__demo-note">Projeto de demonstração/portfólio — marca, dados e imagens fictícios.</p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+</button>
+
+<script>
+/* ==========================================================================
+   NOIR BARBER — script.js
+   JavaScript puro (sem dependências): menu mobile, header ao rolar,
+   scroll suave, animações de entrada, WhatsApp, lightbox da galeria.
+   ========================================================================== */
+
+(function () {
+  'use strict';
+
+  /* ------------------------------------------------------------
+     CONFIGURAÇÃO DO WHATSAPP
+     Troque o número abaixo pelo número real da barbearia.
+     Formato: código do país + DDD + número, apenas dígitos.
+  ------------------------------------------------------------ */
+  const whatsappNumber = "5511999999999";
+  const whatsappMessage = "Olá! Vim pelo site da Noir Barber e gostaria de agendar um horário.";
+
+  function buildWhatsappUrl() {
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    return `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+  }
+
+  function setupWhatsappButtons() {
+    const links = document.querySelectorAll('.js-whatsapp');
+    const url = buildWhatsappUrl();
+    links.forEach((link) => {
+      link.setAttribute('href', url);
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    });
+  }
+
+  /* ------------------------------------------------------------
+     HEADER: muda de aparência ao rolar a página
+  ------------------------------------------------------------ */
+  function setupStickyHeader() {
+    const header = document.getElementById('header');
+    if (!header) return;
+
+    function updateHeader() {
+      if (window.scrollY > 40) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    }
+
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+  }
+
+  /* ------------------------------------------------------------
+     MENU MOBILE (hamburger)
+  ------------------------------------------------------------ */
+  function setupMobileMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (!hamburger || !mobileMenu) return;
+
+    function closeMenu() {
+      mobileMenu.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Abrir menu');
+      document.body.style.overflow = '';
+    }
+
+    function openMenu() {
+      mobileMenu.classList.add('is-open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      hamburger.setAttribute('aria-label', 'Fechar menu');
+      document.body.style.overflow = 'hidden';
+    }
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('is-open');
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    // Fechar ao clicar em qualquer link do menu
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        // Links internos (âncoras) fecham o menu; o link do WhatsApp abre em nova aba
+        closeMenu();
+      });
+    });
+
+    // Fechar com ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
+        closeMenu();
+      }
+    });
+  }
+
+  /* ------------------------------------------------------------
+     SCROLL SUAVE para links internos (âncoras)
+     (html tem scroll-behavior: smooth no CSS; isso é um reforço
+     para navegadores/casos onde o comportamento nativo falha,
+     além de considerar a altura do header fixo)
+  ------------------------------------------------------------ */
+  function setupSmoothScroll() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+
+        const target = document.querySelector(targetId);
+        if (!target) return;
+
+        e.preventDefault();
+        const headerOffset = 70;
+        const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------
+     ANIMAÇÕES DE ENTRADA ao rolar (IntersectionObserver)
+  ------------------------------------------------------------ */
+  function setupScrollReveal() {
+    const items = document.querySelectorAll('[data-aos]');
+    if (!items.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      // Fallback: mostra tudo imediatamente
+      items.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    items.forEach((el) => observer.observe(el));
+  }
+
+  /* ------------------------------------------------------------
+     DIVISOR "LÂMINA" — anima o traço dourado quando entra na tela
+  ------------------------------------------------------------ */
+  function setupBladeDivider() {
+    const divider = document.querySelector('.blade-divider');
+    if (!divider) return;
+
+    if (!('IntersectionObserver' in window)) {
+      divider.classList.add('is-visible');
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            divider.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(divider);
+  }
+
+  /* ------------------------------------------------------------
+     LIGHTBOX DA GALERIA
+  ------------------------------------------------------------ */
+  function setupLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const galleryItems = document.querySelectorAll('.js-gallery-item');
+
+    if (!lightbox || !lightboxImg || !lightboxClose || !galleryItems.length) return;
+
+    let lastFocusedElement = null;
+
+    function openLightbox(imgUrl, altText) {
+      lastFocusedElement = document.activeElement;
+      lightboxImg.setAttribute('src', imgUrl);
+      lightboxImg.setAttribute('alt', altText || 'Imagem ampliada da galeria Noir Barber');
+      lightbox.hidden = false;
+      // Força reflow para permitir a transição de opacidade
+      requestAnimationFrame(() => lightbox.classList.add('is-open'));
+      document.body.style.overflow = 'hidden';
+      lightboxClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        lightbox.hidden = true;
+        lightboxImg.setAttribute('src', '');
+      }, 350);
+      if (lastFocusedElement) lastFocusedElement.focus();
+    }
+
+    galleryItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        const fullUrl = item.getAttribute('data-full');
+        const imgEl = item.querySelector('img');
+        const altText = imgEl ? imgEl.getAttribute('alt') : '';
+        if (fullUrl) openLightbox(fullUrl, altText);
+      });
+    });
+
+    // Fechar ao clicar no botão
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    // Fechar ao clicar fora da imagem (no fundo escuro)
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Fechar com ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !lightbox.hidden) closeLightbox();
+    });
+  }
+
+  /* ------------------------------------------------------------
+     BOTÃO "VOLTAR AO TOPO"
+  ------------------------------------------------------------ */
+  function setupBackToTop() {
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
+
+    function toggleVisibility() {
+      if (window.scrollY > 600) {
+        btn.classList.add('is-visible');
+      } else {
+        btn.classList.remove('is-visible');
+      }
+    }
+
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    toggleVisibility();
+  }
+
+  /* ------------------------------------------------------------
+     INICIALIZAÇÃO
+  ------------------------------------------------------------ */
+  function init() {
+    setupWhatsappButtons();
+    setupStickyHeader();
+    setupMobileMenu();
+    setupSmoothScroll();
+    setupScrollReveal();
+    setupBladeDivider();
+    setupLightbox();
+    setupBackToTop();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
+</script>
+</body>
+</html>

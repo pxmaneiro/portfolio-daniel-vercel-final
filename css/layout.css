@@ -1,0 +1,163 @@
+/* ==========================================================================
+   LAYOUT.CSS
+   Container, grid de 12 colunas e utilitários estruturais.
+   Depende de tokens.css. Nenhum estilo visual fino aqui  apenas estrutura,
+   proporção e espaçamento. Cor/tipografia/hover ficam para outras camadas.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CONTAINER
+   Centraliza o conteúdo até --container-max, com margem lateral fluida.
+   -------------------------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-margin);
+}
+
+/* --------------------------------------------------------------------------
+   SEÇÃO ESTRUTURAL
+   Toda <section> de conteúdo usa esta classe como base. overflow: visible
+   permite que elementos filhos com .bleed ultrapassem os limites do
+   container propositalmente (números de índice, círculos-guia, imagens).
+   -------------------------------------------------------------------------- */
+
+.section {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  padding-block: var(--space-8);
+  border-top: var(--border-hairline);
+}
+
+/* Reduz o respiro entre seções nos extremos (primeira/última) para não
+   duplicar espaço com o header/footer. Ajuste fino, não visual. */
+.section:first-of-type {
+  padding-top: var(--space-6);
+  border-top: none;
+}
+
+.section:last-of-type {
+  padding-bottom: var(--space-7);
+}
+
+/* --------------------------------------------------------------------------
+   GRID DE 12 COLUNAS
+   Mobile-first: 1 coluna como base, expandindo para 12 a partir do tablet.
+   O gap usa --grid-gap (fluido) definido em tokens.css.
+   -------------------------------------------------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--grid-gap);
+}
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   UTILITÁRIOS DE COLUNA
+   Aplicados a partir do tablet (600px+), onde o grid de 12 colunas entra
+   em vigor. Abaixo disso, todo item ocupa a largura total (empilhado),
+   preservando a ordem de leitura.
+   -------------------------------------------------------------------------- */
+
+[class*="col-span-"] {
+  grid-column: span var(--grid-columns) / span var(--grid-columns);
+}
+
+@media (min-width: 600px) {
+  .col-span-1  { grid-column: span 1; }
+  .col-span-2  { grid-column: span 2; }
+  .col-span-3  { grid-column: span 3; }
+  .col-span-4  { grid-column: span 4; }
+  .col-span-5  { grid-column: span 5; }
+  .col-span-6  { grid-column: span 6; }
+  .col-span-7  { grid-column: span 7; }
+  .col-span-8  { grid-column: span 8; }
+  .col-span-9  { grid-column: span 9; }
+  .col-span-10 { grid-column: span 10; }
+  .col-span-11 { grid-column: span 11; }
+  .col-span-12 { grid-column: span 12; }
+
+  .col-start-1  { grid-column-start: 1; }
+  .col-start-2  { grid-column-start: 2; }
+  .col-start-3  { grid-column-start: 3; }
+  .col-start-4  { grid-column-start: 4; }
+  .col-start-5  { grid-column-start: 5; }
+  .col-start-6  { grid-column-start: 6; }
+  .col-start-7  { grid-column-start: 7; }
+  .col-start-8  { grid-column-start: 8; }
+  .col-start-9  { grid-column-start: 9; }
+  .col-start-10 { grid-column-start: 10; }
+  .col-start-11 { grid-column-start: 11; }
+  .col-start-12 { grid-column-start: 12; }
+}
+
+/* Alinhamento vertical dentro da própria célula do grid  usado para criar
+   deslocamento assimétrico (ex.: bloco alinhado à base enquanto o vizinho
+   fica no topo), sem depender de margin manual. */
+.self-start  { align-self: start; }
+.self-end    { align-self: end; }
+.self-center { align-self: center; }
+
+/* --------------------------------------------------------------------------
+   BLEED
+   Permite que um elemento ultrapasse os limites do .container propositalmente
+   (sangria de viewport). Usa largura de viewport para "furar" a margem lateral
+   sem quebrar o fluxo do documento. Aplicar com moderação  é um recurso de
+   composição, não um padrão repetido em toda seção.
+   -------------------------------------------------------------------------- */
+
+.bleed-right {
+  margin-right: calc(-1 * var(--container-margin));
+  width: calc(100% + var(--container-margin));
+}
+
+.bleed-left {
+  margin-left: calc(-1 * var(--container-margin));
+  width: calc(100% + var(--container-margin));
+}
+
+.bleed-full {
+  margin-inline: calc(-1 * var(--container-margin));
+  width: calc(100% + (var(--container-margin) * 2));
+}
+
+/* --------------------------------------------------------------------------
+   ESPAÇAMENTO ESTRUTURAL  utilitários de gap vertical entre blocos
+   internos de uma seção (título → corpo → metadata, por exemplo).
+   -------------------------------------------------------------------------- */
+
+.stack > * + * {
+  margin-top: var(--space-3);
+}
+
+.stack-lg > * + * {
+  margin-top: var(--space-5);
+}
+
+/* --------------------------------------------------------------------------
+   FLEX UTILITÁRIO MÍNIMO
+   Reservado para casos pontuais (ex.: linha de tecnologias, nav) que não
+   justificam grid de 12 colunas.
+   -------------------------------------------------------------------------- */
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.row-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}

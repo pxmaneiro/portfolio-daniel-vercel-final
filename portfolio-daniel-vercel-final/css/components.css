@@ -1,0 +1,332 @@
+/* ==========================================================================
+   COMPONENTS.CSS
+   Header, navegação (inline no desktop, overlay full-screen abaixo de
+   1024px), marcador de coordenada, círculo-guia (com rotação lenta),
+   estados de scroll-reveal e scroll indicator. Estados dinâmicos
+   ([data-state], .is-visible) são controlados pelos módulos em /js.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   VARIÁVEL LOCAL  altura do header
+   Não adicionada a tokens.css porque é específica deste componente (não é
+   um token de design reutilizável como cor/espaço/tipografia  é uma medida
+   de layout derivada do próprio header). Usada para compensar o header fixo
+   nos anchors de navegação (scroll-margin-top), evitando que o conteúdo
+   fique escondido atrás dele ao clicar em um link do menu.
+   -------------------------------------------------------------------------- */
+:root {
+  --header-height: 96px;
+}
+
+/* --------------------------------------------------------------------------
+   HEADER
+   Fixo, transparente sobre o Hero. [data-state="scrolled"] é alternado por
+   section-tracker.js assim que o Hero sai da viewport (ver js/section-tracker.js).
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color var(--dur-medium) var(--ease-cinematic),
+              border-color var(--dur-medium) var(--ease-cinematic);
+}
+
+/* Compensa o header fixo ao navegar por âncora (#about, #projects...),
+   para o conteúdo não ficar escondido atrás dele. Vive aqui (não em
+   layout.css) porque é consequência direta do header ser fixed, não uma
+   regra de grid. */
+#about,
+#projects,
+#stack,
+#experience,
+#contact {
+  scroll-margin-top: var(--header-height);
+}
+
+.site-header[data-state="scrolled"] {
+  background-color: rgba(8, 8, 10, 0.86);
+  backdrop-filter: blur(6px);
+  border-bottom-color: var(--color-hairline);
+}
+
+.site-header__identity {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: var(--tracking-meta);
+  color: var(--color-white);
+}
+
+/* --------------------------------------------------------------------------
+   NAVEGAÇÃO
+   Lista horizontal, mono, tracking largo. Sem hambúrguer nesta etapa 
+   em telas estreitas os itens quebram/escondem via responsive.css (Etapa 8).
+   -------------------------------------------------------------------------- */
+
+.site-nav__list {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.site-nav__link {
+  position: relative;
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-gray-400);
+  transition: color var(--dur-fast) var(--ease-cinematic);
+}
+
+.site-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-white);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-fast) var(--ease-cinematic);
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus-visible {
+  color: var(--color-white);
+}
+
+.site-nav__link:hover::after,
+.site-nav__link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Indicador de seção  atualizado por section-tracker.js conforme a
+   seção ativa cruza o centro da viewport. Valor inicial § 01/06 no HTML. */
+.site-header__tracker {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-gray-600);
+}
+
+/* --------------------------------------------------------------------------
+   MENU TOGGLE (mobile/tablet)
+   Escondido no desktop por padrão  visível a partir de --bp-desktop para
+   baixo via responsive.css. Texto simples ("Menu"/"Fechar"), sem ícone de
+   hambúrguer, consistente com a linguagem textual/mono do resto do site.
+   -------------------------------------------------------------------------- */
+
+.header__menu-toggle {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+/* --------------------------------------------------------------------------
+   NAV  OVERLAY MOBILE/TABLET
+   Em telas largas (desktop), .site-nav permanece inline (comportamento
+   original da Etapa 3). Abaixo de --bp-desktop, vira overlay full-screen
+   controlado por nav.js via [data-state="open"/"closed"] no próprio
+   elemento  regras de visibilidade/gatilho ficam em responsive.css,
+   aqui só a aparência do overlay em si.
+
+   Escopado ao mesmo breakpoint do display:none/flex em responsive.css
+   (max-width: 1023px): sem isso, se o menu for aberto em mobile e a janela
+   for redimensionada/rotacionada para desktop sem fechá-lo antes, o nav
+   ficaria preso em position:fixed e desapareceria da navegação inline do
+   desktop até a página ser recarregada.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+  .site-nav[data-state] {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-black);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    pointer-events: none;
+    transition: opacity var(--dur-medium) var(--ease-cinematic),
+                transform var(--dur-medium) var(--ease-cinematic),
+                visibility 0s var(--dur-medium);
+  }
+
+  .site-nav[data-state="open"] {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition: opacity var(--dur-medium) var(--ease-cinematic),
+                transform var(--dur-medium) var(--ease-cinematic),
+                visibility 0s 0s;
+  }
+
+  .site-nav[data-state] .site-nav__list {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .site-nav[data-state] .site-nav__link {
+    font-size: var(--fs-heading);
+    font-family: var(--font-mono);
+    letter-spacing: var(--tracking-meta);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   MARCADOR DE COORDENADA
+   Anotação editorial discreta: um "+" pequeno + legenda mono. Função de
+   "isto está sendo medido/observado", nunca decorativo isolado  sempre
+   ancorado a um bloco de conteúdo real (ver uso no Hero).
+   -------------------------------------------------------------------------- */
+
+.coordinate-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-gray-600);
+  user-select: none;
+}
+
+.coordinate-marker__symbol {
+  font-size: 0.875em;
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   CÍRCULO-GUIA
+   SVG fino, opacidade baixa, posicionado de forma absoluta dentro de uma
+   seção com overflow: visible (herdado de .section em layout.css), cortado
+   parcialmente pela borda da viewport/container. Estático nesta etapa 
+   a rotação lenta entra na Etapa 7, respeitando prefers-reduced-motion.
+   -------------------------------------------------------------------------- */
+
+.circle-guide {
+  position: absolute;
+  pointer-events: none;
+  z-index: var(--z-atmosphere);
+  opacity: 0.5;
+  /* Rotação extremamente lenta e contínua  quase imperceptível, dá "vida"
+     ao círculo sem chamar atenção. Duração longa o suficiente para nunca
+     ser percebida como "giro", só como leve deriva. Desativada globalmente
+     por prefers-reduced-motion (regra já existe em base.css). */
+  animation: circle-drift 180s linear infinite;
+}
+
+.circle-guide circle {
+  fill: none;
+  stroke: var(--color-hairline-strong);
+  stroke-width: 0.75;
+}
+
+.hero__circle--secondary {
+  animation-duration: 240s;
+  animation-direction: reverse;
+}
+
+@keyframes circle-drift {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* --------------------------------------------------------------------------
+   SCROLL REVEAL  estados controlados por scroll-reveal.js
+   Elemento parte de opacidade 0 + leve deslocamento vertical, revela ao
+   entrar na viewport. Sem JS (ou com prefers-reduced-motion), a classe
+   .is-visible é aplicada de imediato  o conteúdo nunca fica invisível
+   caso o JavaScript falhe ao carregar (progressive enhancement).
+   -------------------------------------------------------------------------- */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--dur-slow) var(--ease-cinematic),
+              transform var(--dur-slow) var(--ease-cinematic);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fallback crítico: se o JS não carregar, o conteúdo não pode ficar
+   permanentemente invisível. noscript garante visibilidade total. */
+html.no-js [data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+
+/* Conteúdo pontual que antes dependia de estilos inline. Mantém a hierarquia
+   no stylesheet e facilita auditoria/manutenção. */
+.hero__meta-copy,
+.about__support {
+  color: var(--color-gray-400);
+}
+
+.about__support {
+  font-size: var(--fs-body-lg);
+  font-style: normal;
+}
+
+/* Delay do reveal como dado declarativo no HTML, sem estilos inline. */
+[data-reveal-delay="80"] { --reveal-delay: 80ms; }
+[data-reveal-delay="100"] { --reveal-delay: 100ms; }
+[data-reveal-delay="160"] { --reveal-delay: 160ms; }
+[data-reveal-delay="240"] { --reveal-delay: 240ms; }
+
+[data-reveal] {
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+@media (max-width: 1023px) {
+  body.nav-open {
+    overflow: hidden;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   SCROLL INDICATOR
+   Link funcional (#about), discreto, mono. Sem animação de bounce 
+   apenas um leve deslocamento de opacidade no hover.
+   -------------------------------------------------------------------------- */
+
+.scroll-indicator {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-gray-400);
+  transition: color var(--dur-fast) var(--ease-cinematic);
+}
+
+.scroll-indicator:hover,
+.scroll-indicator:focus-visible {
+  color: var(--color-white);
+}
+
+.scroll-indicator__glyph {
+  font-size: 1rem;
+}

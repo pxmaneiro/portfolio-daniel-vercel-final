@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Luis dos Santos | AI Developer</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Portfólio de Daniel: design, desenvolvimento e experiências digitais focadas em criar landing pages e produtos digitais que ajudam empresas a vender mais na internet.">
+
+  <!--
+    FALLBACK TEMPORÁRIO DE FONTES: remover assim que os .woff2 locais
+    forem adicionados em /fonts/ (ver /fonts/README.md). O @font-face
+    self-hosted já está configurado em base.css e assume prioridade
+    quando os arquivos locais existirem.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Fraunces:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head><body>
+
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <!--
+    Estrutura completa das 6 seções (Hero, About, Projects, Stack,
+    Experience, Contact), com composição visual final e JS ligado
+    (scroll-reveal, section-tracker, nav mobile). Conteúdo em placeholder
+    onde ainda não há dado real  ver comentários por seção.
+  -->
+
+  <header class="site-header" data-state="top">
+    <div class="container row-between">
+
+      <p class="site-header__identity">
+        Daniel Luis dos Santos
+      </p>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navegação principal">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="#about">Sobre</a></li>
+          <li><a class="site-nav__link" href="#projects">Projetos</a></li>
+          <li><a class="site-nav__link" href="#stack">Stack</a></li>
+          <li><a class="site-nav__link" href="#experience">Processo</a></li>
+          <li><a class="site-nav__link" href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+
+      <button
+        class="header__menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Abrir menu de navegação"
+      >Menu</button>
+
+      <p class="site-header__tracker" aria-hidden="true">§ 01/06</p>
+
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ==================== 01  HERO ==================== -->
+    <section id="hero" class="section section--hero" data-index="01" aria-labelledby="hero-heading">
+
+      <div class="hero__portrait-wrap" aria-hidden="true">
+        <div class="hero__portrait-frame">
+          <img class="hero__portrait" src="assets/daniel-hero.jpg" alt="">
+        </div>
+      </div>
+
+      <!-- Círculos-guia: decorativos, ancorados à composição, não ao acaso -->
+      <svg class="circle-guide hero__circle--primary" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        <circle cx="50" cy="50" r="49" />
+      </svg>
+      <svg class="circle-guide hero__circle--secondary" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        <circle cx="50" cy="50" r="49" />
+      </svg>
+
+      <div class="container grid">
+
+        <div class="col-span-8 col-start-1 stack-lg">
+
+          <span class="coordinate-marker" aria-hidden="true">
+            <span class="coordinate-marker__symbol">+</span>
+            AI DEVELOPER · § 01/06
+          </span>
+
+          <h1 id="hero-heading" class="hero__headline">
+            AI Developer
+          </h1>
+
+          <span class="coordinate-marker" aria-hidden="true">
+            <span class="coordinate-marker__symbol">+</span>
+            DESIGN · DEVELOPMENT · CONVERSION
+          </span>
+
+          <p class="hero__editorial-line">
+            Crio landing pages e experiências digitais com direção visual, desenvolvimento e foco em conversão, transformando ideias em produtos claros, desejáveis e prontos para gerar ação.
+          </p>
+
+        </div>
+
+        <div class="col-span-4 col-start-9 self-end hero__meta-block">
+          <span class="coordinate-marker" aria-hidden="true">
+            <span class="coordinate-marker__symbol">+</span>
+            FOCO
+          </span>
+          <p class="text-meta hero__meta-copy">
+            LANDING PAGES<br>
+            DIGITAL EXPERIENCES<br>
+            DIREÇÃO VISUAL<br>
+            CONVERSION
+          </p>
+        </div>
+
+      </div>
+
+      <div class="hero__scroll-wrap">
+        <a class="scroll-indicator" href="#about">
+          <span>Scroll</span>
+          <span class="scroll-indicator__glyph" aria-hidden="true">↓</span>
+          <span>01 / 06</span>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- ==================== 02  ABOUT ==================== -->
+    <section id="about" class="section section--about" data-index="02" aria-labelledby="about-heading">
+      <div class="container grid">
+
+        <div class="col-span-3 col-start-1">
+          <span class="coordinate-marker" aria-hidden="true">
+            <span class="coordinate-marker__symbol">+</span>
+            § 02/06
+          </span>
+        </div>
+
+        <div class="col-span-6 col-start-4 stack" data-reveal>
+          <div class="about__heading-row">
+            <h2 id="about-heading">Sobre mim</h2>
+          </div>
+          <p class="text-editorial about__lede">
+            Sou AI Developer e crio landing pages e experiências digitais unindo direção visual, desenvolvimento e estratégia de conversão.
+          </p>
+          <p class="text-editorial about__support">
+            Meu processo começa na ideia e termina em uma experiência digital pronta para funcionar. Combino direção visual, tecnologia e experimentação para transformar conceitos em interfaces reais, responsivas e pensadas para gerar ação.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 03 PROJECTS ==================== -->
+    <section id="projects" class="section section--projects" data-index="03" aria-labelledby="projects-heading">
+      <div class="container">
+
+        <div class="projects__intro" data-reveal>
+          <div>
+            <span class="coordinate-marker" aria-hidden="true">
+              <span class="coordinate-marker__symbol">+</span>
+              § 03/06
+            </span>
+            <h2 id="projects-heading">Projetos selecionados</h2>
+          </div>
+          <p class="projects__intro-copy">Uma seleção de landing pages e experiências digitais criadas para diferentes negócios, com atenção à direção visual, desenvolvimento, experiência e conversão.</p>
+        </div>
+
+        <div class="projects__grid">
+
+          <article class="project-card" data-reveal>
+            <a href="projects/aura-restaurante/index.html" target="_blank" rel="noopener">
+              <div class="project-card__media">
+                <img src="projects/aura-restaurante/portfolio-preview.jpg" alt="Tela inicial do projeto AURA Restaurante" loading="eager">
+                <span class="project-card__number">01</span>
+                <span class="project-card__open">Abrir ↗</span>
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__kicker">RESTAURANTE / PREMIUM</p>
+                <h3 class="project-card__title">AURA Restaurante</h3>
+                <p class="project-card__description">Presença digital premium para gastronomia contemporânea, com foco em narrativa, confiança e reserva.</p>
+                <p class="text-meta project-card__stack">HTML / CSS / JAVASCRIPT</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="project-card" data-reveal data-reveal-delay="80">
+            <a href="projects/sabor-em-familia/index.html" target="_blank" rel="noopener">
+              <div class="project-card__media project-card__media--light">
+                <img src="projects/sabor-em-familia/portfolio-preview.jpg" alt="Fotografia real de bolo usada no projeto Sabor em Família" loading="lazy">
+                <span class="project-card__number">02</span>
+                <span class="project-card__open">Abrir ↗</span>
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__kicker">CONFEITARIA / CONVERSÃO</p>
+                <h3 class="project-card__title">Sabor em Família</h3>
+                <p class="project-card__description">Catálogo com produtos, pedidos por WhatsApp, galeria e FAQ em uma jornada simples e direta.</p>
+                <p class="text-meta project-card__stack">REACT / TYPESCRIPT / VITE / TAILWIND</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <a href="projects/flor-e-ambar/index.html" target="_blank" rel="noopener">
+              <div class="project-card__media">
+                <img src="projects/flor-e-ambar/portfolio-preview.jpg" alt="Tela inicial do projeto Flor & Âmbar" loading="lazy">
+                <span class="project-card__number">03</span>
+                <span class="project-card__open">Abrir ↗</span>
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__kicker">BEAUTY / PREMIUM SERVICE</p>
+                <h3 class="project-card__title">Flor &amp; Âmbar</h3>
+                <p class="project-card__description">Experiência para serviço de beleza com estética premium, apresentação de serviços e caminho claro para agendamento.</p>
+                <p class="text-meta project-card__stack">HTML / CSS / JAVASCRIPT</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="project-card" data-reveal data-reveal-delay="80">
+            <a href="projects/noir-barber/index.html" target="_blank" rel="noopener">
+              <div class="project-card__media">
+                <img src="projects/noir-barber/portfolio-preview.jpg" alt="Tela inicial do projeto Noir Barber" loading="lazy">
+                <span class="project-card__number">04</span>
+                <span class="project-card__open">Abrir ↗</span>
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__kicker">BARBERSHOP / PREMIUM</p>
+                <h3 class="project-card__title">Noir Barber</h3>
+                <p class="project-card__description">Posicionamento premium para barbearia, com serviços, equipe, galeria e pontos de contato.</p>
+                <p class="text-meta project-card__stack">HTML / CSS / JAVASCRIPT</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <a href="projects/augusts-lanchonete/index.html" target="_blank" rel="noopener">
+              <div class="project-card__media project-card__media--light">
+                <img src="projects/augusts-lanchonete/portfolio-preview.jpg" alt="Tela inicial do projeto August's Lanchonete" loading="lazy">
+                <span class="project-card__number">05</span>
+                <span class="project-card__open">Abrir ↗</span>
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__kicker">FOOD / LOCAL BUSINESS</p>
+                <h3 class="project-card__title">August's Lanchonete</h3>
+                <p class="project-card__description">Página comercial para negócio local, com oferta, cardápio, conteúdo e caminhos de pedido.</p>
+                <p class="text-meta project-card__stack">HTML / CSS / JAVASCRIPT</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="project-card" data-reveal data-reveal-delay="80">
+            <a href="projects/seven-natural-life/index.html" target="_blank" rel="noopener">
+              <div class="project-card__media project-card__media--light">
+                <img src="projects/seven-natural-life/portfolio-preview.jpg" alt="Tela inicial do projeto Seven Natural Life" loading="lazy">
+                <span class="project-card__number">06</span>
+                <span class="project-card__open">Abrir ↗</span>
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__kicker">WELLNESS / LOCAL BUSINESS</p>
+                <h3 class="project-card__title">Seven Natural Life</h3>
+                <p class="project-card__description">Presença digital para negócio de bem estar com foco em confiança, informação e contato.</p>
+                <p class="text-meta project-card__stack">HTML / CSS / JAVASCRIPT</p>
+              </div>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 04  STACK ==================== -->
+    <section id="stack" class="section section--stack" data-index="04" aria-labelledby="stack-heading">
+      <div class="container grid">
+
+        <div class="col-span-3 col-start-1 stack">
+          <span class="coordinate-marker" aria-hidden="true">
+            <span class="coordinate-marker__symbol">+</span>
+            § 04/06
+          </span>
+          <h2 id="stack-heading">Stack</h2>
+        </div>
+
+        <div class="col-span-2 col-start-5 stack-category" data-reveal>
+          <p class="label stack-category__label">Web</p>
+          <ul class="text-meta stack-category__list">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>React</li>
+          </ul>
+        </div>
+
+        <div class="col-span-2 col-start-7 stack-category" data-reveal data-reveal-delay="80">
+          <p class="label stack-category__label">Build</p>
+          <ul class="text-meta stack-category__list">
+            <li>TypeScript</li>
+            <li>Vite</li>
+            <li>Tailwind CSS</li>
+            <li>Git</li>
+          </ul>
+        </div>
+
+        <div class="col-span-2 col-start-9 stack-category" data-reveal data-reveal-delay="160">
+          <p class="label stack-category__label">Tools</p>
+          <ul class="text-meta stack-category__list">
+            <li>Antigravity</li>
+            <li>Claude Code</li>
+            <li>OpenAI</li>
+            <li>Google AI Studio</li>
+          </ul>
+        </div>
+
+        <div class="col-span-2 col-start-11 stack-category" data-reveal data-reveal-delay="240">
+          <p class="label stack-category__label">Foco</p>
+          <ul class="text-meta stack-category__list">
+            <li>Landing pages</li>
+            <li>Conversion</li>
+            <li>Visual direction</li>
+            <li>Responsive UX</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 05  EXPERIENCE ==================== -->
+    <section id="experience" class="section section--experience" data-index="05" aria-labelledby="experience-heading">
+      <div class="container">
+        <div class="grid process-intro">
+          <div class="col-span-4 col-start-1 stack">
+            <span class="coordinate-marker" aria-hidden="true">
+              <span class="coordinate-marker__symbol">+</span>
+              § 05/06
+            </span>
+            <h2 id="experience-heading">Como trabalho</h2>
+          </div>
+          <div class="col-span-5 col-start-8" data-reveal>
+            <p class="text-editorial process-intro__copy">Transformo uma ideia em uma experiência digital completa, da direção visual à implementação. Trabalho com velocidade, experimentação e atenção aos detalhes para chegar a uma página pronta, responsiva e pensada para conversão.</p>
+          </div>
+        </div>
+
+        <ol class="process__list">
+          <li class="process__row grid" data-reveal>
+            <span class="process__number">01</span>
+            <div class="process__main col-span-5 col-start-3">
+              <h3>Direção</h3>
+              <p>Entendo a proposta, o público e a ação que a página precisa gerar.</p>
+            </div>
+            <span class="process__tag col-span-3 col-start-9">ESTRATÉGIA</span>
+          </li>
+          <li class="process__row grid" data-reveal data-reveal-delay="80">
+            <span class="process__number">02</span>
+            <div class="process__main col-span-5 col-start-3">
+              <h3>Construção</h3>
+              <p>Transformo conceitos em interfaces reais, combinando velocidade de produção, experimentação e desenvolvimento.</p>
+            </div>
+            <span class="process__tag col-span-3 col-start-9">BUILD / DEV</span>
+          </li>
+          <li class="process__row grid" data-reveal data-reveal-delay="160">
+            <span class="process__number">03</span>
+            <div class="process__main col-span-5 col-start-3">
+              <h3>Refino</h3>
+              <p>Reviso hierarquia, responsividade, interação e detalhes que fazem a experiência parecer pronta.</p>
+            </div>
+            <span class="process__tag col-span-3 col-start-9">POLISH</span>
+          </li>
+          <li class="process__row grid" data-reveal data-reveal-delay="240">
+            <span class="process__number">04</span>
+            <div class="process__main col-span-5 col-start-3">
+              <h3>Conversão</h3>
+              <p>Organizo a experiência para facilitar entendimento, desejo e próxima ação.</p>
+            </div>
+            <span class="process__tag col-span-3 col-start-9">RESULTADO</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==================== 06  CONTACT ==================== -->
+    <section id="contact" class="section section--contact" data-index="06" aria-labelledby="contact-heading">
+
+      <svg class="circle-guide contact__circle" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        <circle cx="50" cy="50" r="49" />
+      </svg>
+
+      <div class="container grid">
+
+        <div class="col-span-8 col-start-1 stack-lg" data-reveal>
+          <span class="coordinate-marker" aria-hidden="true">
+            <span class="coordinate-marker__symbol">+</span>
+            § 06/06
+          </span>
+          <h2 id="contact-heading" class="contact__headline">
+            Vamos criar algo que vende.
+          </h2>
+        </div>
+
+        <div class="col-span-3 col-start-10 self-end stack contact__list" data-reveal data-reveal-delay="100">
+          <p class="label">Vamos conversar</p>
+          <ul class="text-meta stack">
+            <li><a href="mailto:dannielsanntos1508@gmail.com">EMAIL</a></li>
+            <li><a href="https://wa.link/95i54k" target="_blank" rel="noopener">WHATSAPP</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer container row-between">
+    <p class="label">Daniel Luis dos Santos © 2026</p>
+    <p class="label">§ 06/06</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+
+</body>
+</html>

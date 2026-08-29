@@ -1,0 +1,785 @@
+/* ==========================================================================
+   SECTIONS.CSS
+   Estilos específicos por seção  composição visual final das 6 seções
+   (Hero, About, Stack, Projects, Experience, Contact). Layout/grid genérico
+   vive em layout.css; aqui só o que é específico de cada seção.
+   ========================================================================== */
+
+/* === HERO ================================================================ */
+
+.section--hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--header-height);
+  overflow: hidden; /* contém os círculos-guia cortados nas bordas da seção */
+}
+
+/* Container interno precisa de overflow visible para o grid respirar,
+   mesmo com a seção pai cortando os círculos nas bordas externas. */
+.section--hero > .container {
+  position: relative;
+  z-index: var(--z-content);
+  overflow: visible;
+}
+
+/* Headline principal  Unbounded, peso máximo, leading apertado.
+   Tamanho ligeiramente acima do --fs-display-xl padrão de h1 para reforçar
+   que este é O momento display do site inteiro. */
+.hero__headline {
+  font-family: var(--font-display);
+  font-weight: var(--fw-display-black);
+  font-size: var(--fs-display-xl);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+/* Frase editorial única  Fraunces itálico. Deliberadamente curta,
+   contrastando com o peso geométrico do headline acima dela. */
+.hero__editorial-line {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: var(--fw-editorial-reg);
+  font-size: var(--fs-editorial);
+  line-height: var(--lh-editorial);
+  color: var(--color-gray-400);
+  max-width: 32ch;
+}
+
+.hero__meta-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Posicionamento dos círculos-guia dentro do Hero. Valores de tamanho e
+   posição são específicos desta composição (não tokens globais)  cada
+   círculo está ancorado a um elemento de conteúdo real, nunca solto:
+   o maior ecoa o bloco de headline (canto superior direito, cortado pela
+   borda), o menor ancora o bloco de metadata inferior direito. */
+.hero__circle--primary {
+  top: -12%;
+  right: -8%;
+  width: min(46vw, 620px);
+  height: min(46vw, 620px);
+}
+
+.hero__circle--secondary {
+  bottom: -18%;
+  right: 14%;
+  width: min(20vw, 280px);
+  height: min(20vw, 280px);
+  opacity: 0.35;
+}
+
+.hero__scroll-wrap {
+  position: absolute;
+  left: var(--container-margin);
+  bottom: var(--space-5);
+  z-index: var(--z-content);
+}
+
+/* === ABOUT ================================================================
+   Coluna estreita de leitura editorial (já definida no grid da Etapa 2).
+   Único elemento novo: o número de seção grande e translúcido ao fundo,
+   derivado diretamente de data-index (não um número solto)  mesmo
+   princípio de "anotação com função real" usado no Hero.
+   ========================================================================== */
+
+.section--about {
+  overflow: hidden;
+}
+
+.section--about::before {
+  content: attr(data-index);
+  position: absolute;
+  top: 50%;
+  right: var(--container-margin);
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-weight: var(--fw-display-black);
+  font-size: clamp(8rem, 22vw, 20rem);
+  line-height: 1;
+  color: var(--color-surface-2);
+  z-index: var(--z-base);
+  pointer-events: none;
+  user-select: none;
+}
+
+.section--about > .container {
+  position: relative;
+  z-index: var(--z-content);
+}
+
+.about__heading-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.about__heading-row h2 {
+  font-size: var(--fs-display-lg);
+}
+
+/* Aspas editoriais discretas  marcam o início do parágrafo como uma
+   declaração, sem virar blockquote pesado. Puramente tipográfico. */
+.about__lede::before {
+  content: "· "; /* travessão + espaço  abre a frase como citação editorial */
+  color: var(--color-gray-600);
+}
+
+/* === STACK =================================================================
+   Lista tipográfica por categoria, sem cards, sem ícones. Hairlines verticais
+   sutis entre colunas reforçam o "grid de painéis" da referência 1, traduzido
+   em linha fina em vez de bloco de cor.
+   ========================================================================== */
+
+.section--stack .stack-category {
+  padding-left: var(--space-3);
+  border-left: var(--border-hairline);
+}
+
+.section--stack .stack-category__label {
+  color: var(--color-white);
+  margin-bottom: var(--space-2);
+}
+
+.section--stack .stack-category__list li {
+  padding-block: var(--space-1);
+  border-top: var(--border-hairline);
+  color: var(--color-gray-400);
+}
+
+.section--stack .stack-category__list li:first-child {
+  border-top: none;
+}
+
+/* === PROJECTS ==============================================================
+   Composição alternada já definida no grid da Etapa 2 (imagem/texto invertem
+   de lado a cada projeto). Aqui entra o tratamento fino: sistema de imagem
+   variável por projeto (data-treatment), numeração como dado real (não
+   decorativo) e hairlines separando cada "capítulo".
+   ========================================================================== */
+
+.section--projects .projects__header {
+  margin-bottom: var(--space-6);
+}
+
+.section--projects .project {
+  padding-block: var(--space-6);
+  border-top: var(--border-hairline);
+}
+
+.section--projects .project:first-of-type {
+  padding-top: 0;
+  border-top: none;
+}
+
+/* Número do projeto  deriva de data-project, mesmo princípio do número
+   de fundo em About: a numeração é dado estrutural, não estética solta. */
+.project__index {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-gray-600);
+  margin-bottom: var(--space-2);
+}
+
+.project__title {
+  font-family: var(--font-display);
+  font-weight: var(--fw-display-bold);
+  font-size: var(--fs-heading);
+  letter-spacing: var(--tracking-tight);
+}
+
+.project__description {
+  color: var(--color-gray-400);
+  max-width: 42ch;
+}
+
+.project__stack {
+  color: var(--color-gray-600);
+}
+
+/* Moldura da mídia  hairline fina, sem arredondamento, cinematográfica
+   (21:9). Placeholder textual hoje; recebe <img>/<picture> reais depois
+   sem alterar esta estrutura. */
+.project__media {
+  position: relative;
+  aspect-ratio: 21 / 9;
+  border: var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--color-surface-1);
+}
+
+.project__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter var(--dur-slow) var(--ease-cinematic);
+}
+
+/* --------------------------------------------------------------------------
+   SISTEMA DE TRATAMENTO DE IMAGEM  por projeto, via data-treatment.
+   Não é regra global obrigatória: cada projeto declara o próprio tratamento,
+   conforme a natureza visual daquele trabalho específico.
+   -------------------------------------------------------------------------- */
+
+/* mono  preto e branco integral, para projetos de linguagem mais austera/técnica */
+.project__media[data-treatment="mono"] img {
+  filter: grayscale(100%) contrast(1.05);
+}
+
+/* desat  dessaturado, mantém leve presença de cor, meio-termo editorial */
+.project__media[data-treatment="desat"] img {
+  filter: grayscale(55%) contrast(1.02);
+}
+
+/* duotone  luminosidade da imagem sobre a base preta do site, sem cor própria */
+.project__media[data-treatment="duotone"] img {
+  filter: grayscale(100%);
+  mix-blend-mode: luminosity;
+  opacity: 0.92;
+}
+
+/* color  tratamento original, reservado a projetos onde a cor é o próprio assunto */
+.project__media[data-treatment="color"] img {
+  filter: none;
+}
+
+/* Revelação discreta no hover: aproxima ligeiramente do tratamento original,
+   nunca inverte o conceito do projeto  é um respiro, não uma troca. */
+@media (hover: hover) {
+  .project__media[data-treatment="mono"]:hover img {
+    filter: grayscale(85%) contrast(1.05);
+  }
+
+  .project__media[data-treatment="desat"]:hover img {
+    filter: grayscale(35%) contrast(1.02);
+  }
+}
+
+.project__media-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-gray-600);
+  text-transform: uppercase;
+}
+
+/* === EXPERIENCE =============================================================
+   Lista editorial, sem tabela/dashboard: colunas de período, empresa e cargo
+   alinhadas pelo próprio grid de 12 colunas, separadas por hairline. Sem
+   zebra striping, sem bordas laterais  o alinhamento tipográfico já
+   comunica estrutura o suficiente.
+   ========================================================================== */
+
+.section--experience .experience__list {
+  margin-top: var(--space-5);
+}
+
+.section--experience .experience__row {
+  padding-block: var(--space-3);
+  border-top: var(--border-hairline);
+  transition: opacity var(--dur-fast) var(--ease-cinematic);
+}
+
+.section--experience .experience__row:first-child {
+  border-top: none;
+}
+
+.experience__period {
+  color: var(--color-gray-600);
+}
+
+.experience__company {
+  font-family: var(--font-display);
+  font-weight: var(--fw-display-bold);
+  font-size: var(--fs-body-lg);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-white);
+}
+
+.experience__role {
+  color: var(--color-gray-400);
+}
+
+/* === CONTACT ================================================================
+   Fecha o ritmo do site ecoando a composição do Hero: headline grande em
+   1-8, contato em bloco lateral alinhado à base. Um único círculo-guia
+   de fechamento, simétrico ao par usado no Hero  não um terceiro motivo
+   novo, o mesmo sistema encerrando o percurso.
+   ========================================================================== */
+
+.section--contact {
+  overflow: hidden;
+  min-height: 70svh;
+  display: flex;
+  align-items: center;
+}
+
+.section--contact > .container {
+  position: relative;
+  z-index: var(--z-content);
+}
+
+.contact__circle {
+  top: 50%;
+  left: -10%;
+  transform: translateY(-50%);
+  width: min(34vw, 460px);
+  height: min(34vw, 460px);
+  opacity: 0.4;
+}
+
+.contact__headline {
+  font-family: var(--font-display);
+  font-weight: var(--fw-display-black);
+  font-size: var(--fs-display-lg);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+  max-width: 14ch;
+}
+
+.contact__list a {
+  display: block;
+  color: var(--color-gray-400);
+  transition: color var(--dur-fast) var(--ease-cinematic);
+}
+
+.contact__list a:hover,
+.contact__list a:focus-visible {
+  color: var(--color-white);
+}
+
+/* === FOOTER ================================================================ */
+
+.site-footer {
+  color: var(--color-gray-600);
+}
+
+/* === PROJECT MEDIA / REAL PROJECT LINKS ================================== */
+.project__media {
+  color: var(--color-white);
+  text-decoration: none;
+  background: var(--color-surface-1);
+}
+
+.project__media-inner {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 0;
+}
+
+.project__media-inner strong {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: var(--tracking-tight);
+}
+
+.project__media-kicker,
+.project__media-sub {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-gray-400);
+}
+
+.project__media:hover .project__media-inner,
+.project__media:focus-visible .project__media-inner {
+  background: var(--color-surface-2);
+}
+
+.project__media--aura { background: #161616; }
+.project__media--sabor { background: #24201d; }
+.project__media--flor { background: #1d2020; }
+.project__media--noir { background: #101010; }
+.project__media--augusts { background: #211d19; }
+.project__media--apex { background: #181b1d; }
+
+@media (max-width: 1023px) {
+  .project__media-inner { min-height: 260px; }
+}
+
+@media (max-width: 599px) {
+  .project__media-inner { min-height: 240px; padding: var(--space-4); }
+  .project__media-inner strong { font-size: clamp(1.8rem, 10vw, 3.4rem); }
+}
+
+/* PROJECT GRID POLISH */
+.section--projects {
+  overflow: clip;
+}
+
+.projects__intro {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
+}
+
+.projects__intro h2 {
+  margin-top: var(--space-2);
+  max-width: 11ch;
+}
+
+.projects__intro-copy {
+  max-width: 30rem;
+  color: var(--color-gray-400);
+  font-family: var(--font-editorial);
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-editorial);
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4) var(--grid-gap);
+}
+
+.project-card {
+  min-width: 0;
+  border-top: var(--border-hairline);
+  padding-top: var(--space-2);
+}
+
+.project-card a {
+  display: block;
+}
+
+.project-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--color-surface-1);
+  border: var(--border-hairline);
+}
+
+.project-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8, 8, 10, 0.68), rgba(8, 8, 10, 0) 55%);
+  pointer-events: none;
+}
+
+.project-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms var(--ease-cinematic), filter 700ms var(--ease-cinematic);
+}
+
+.project-card__number,
+.project-card__open {
+  position: absolute;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.project-card__number {
+  top: var(--space-2);
+  left: var(--space-2);
+  padding: 0.38rem 0.55rem;
+  background: rgba(8, 8, 10, 0.78);
+  border: var(--border-hairline);
+}
+
+.project-card__open {
+  right: var(--space-2);
+  bottom: var(--space-2);
+  color: var(--color-white);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--dur-fast) var(--ease-cinematic), transform var(--dur-fast) var(--ease-cinematic);
+}
+
+.project-card__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1fr;
+  gap: var(--space-3);
+  padding: var(--space-3) 0 var(--space-4);
+}
+
+.project-card__kicker {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-gray-600);
+  margin-bottom: var(--space-1);
+}
+
+.project-card__title {
+  font-size: clamp(1.5rem, 2.4vw, 2.4rem);
+}
+
+.project-card__description {
+  color: var(--color-gray-400);
+  max-width: 34ch;
+  align-self: start;
+}
+
+.project-card__stack {
+  grid-column: 1 / -1;
+  color: var(--color-gray-600);
+  padding-top: var(--space-2);
+  border-top: var(--border-hairline);
+}
+
+@media (hover: hover) {
+  .project-card:hover .project-card__media img,
+  .project-card:focus-within .project-card__media img {
+    transform: scale(1.035);
+    filter: saturate(1.03) contrast(1.03);
+  }
+
+  .project-card:hover .project-card__open,
+  .project-card:focus-within .project-card__open {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   FINAL POLISH
+   Hero com retrato real e Projects com previews reais
+   ============================================================================ */
+
+.section--hero {
+  isolation: isolate;
+}
+
+.hero__portrait-wrap {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: clamp(6vw, 10vw, 12vw);
+  width: min(34vw, 500px);
+  transform: translateY(-46%);
+  pointer-events: none;
+}
+
+.hero__portrait-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 48% 48% 44% 44% / 38% 38% 58% 58%;
+  background: #21060a;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 28px 90px rgba(0,0,0,0.36);
+}
+
+.hero__portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(12,7,8,0.02) 30%, rgba(8,8,10,0.28) 100%),
+    radial-gradient(circle at 58% 36%, rgba(255, 163, 86, 0.08), transparent 44%);
+  pointer-events: none;
+}
+
+.hero__portrait {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 48%;
+  filter: saturate(0.96) contrast(1.02);
+  transform: scale(1.02);
+}
+
+.section--hero > .container {
+  z-index: 3;
+}
+
+.hero__circle--primary {
+  z-index: 2;
+}
+
+.hero__editorial-line {
+  max-width: 42ch;
+}
+
+.section--about {
+  padding-block: clamp(7rem, 13vw, 12rem);
+}
+
+.section--about .about__lede {
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  max-width: 26ch;
+}
+
+.projects__intro {
+  margin-bottom: clamp(3rem, 6vw, 6rem);
+}
+
+.projects__intro h2 {
+  max-width: 16ch;
+  font-size: clamp(3rem, 6vw, 6.4rem);
+  line-height: 0.96;
+}
+
+.projects__intro-copy {
+  max-width: 34ch;
+}
+
+.projects__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(3rem, 5vw, 5.5rem) var(--grid-gap);
+}
+
+.project-card {
+  padding-top: var(--space-2);
+}
+
+.project-card:nth-child(2),
+.project-card:nth-child(4),
+.project-card:nth-child(6) {
+  margin-top: clamp(2.5rem, 7vw, 7rem);
+}
+
+.project-card__media {
+  aspect-ratio: 16 / 10;
+  background: #121214;
+  border-color: rgba(255,255,255,0.10);
+}
+
+.project-card__media--light {
+  background: #e8e1d8;
+}
+
+.project-card__body {
+  grid-template-columns: 1.15fr 0.85fr;
+  padding-top: var(--space-3);
+}
+
+.project-card__kicker {
+  letter-spacing: 0.14em;
+}
+
+.project-card__title {
+  font-size: clamp(1.7rem, 3vw, 3rem);
+  line-height: 0.98;
+}
+
+.project-card__description {
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.project-card__open {
+  padding: 0.38rem 0.55rem;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(8,8,10,0.78);
+  text-decoration: none;
+}
+
+.process-intro {
+  align-items: end;
+  margin-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+.process-intro__copy {
+  max-width: 34ch;
+  color: var(--color-gray-400);
+}
+
+.process__list {
+  margin: 0;
+  padding: 0;
+}
+
+.process__row {
+  position: relative;
+  align-items: start;
+  padding: clamp(1.5rem, 2.8vw, 2.75rem) 0;
+  border-top: var(--border-hairline);
+}
+
+.process__row:last-child {
+  border-bottom: var(--border-hairline);
+}
+
+.process__number,
+.process__tag {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-gray-600);
+}
+
+.process__main h3 {
+  margin: 0 0 0.55rem;
+  font-size: clamp(1.6rem, 2.5vw, 2.35rem);
+}
+
+.process__main p {
+  max-width: 38ch;
+  color: var(--color-gray-400);
+  margin: 0;
+}
+
+.process__tag {
+  justify-self: end;
+  padding-top: 0.2rem;
+}
+
+.section--contact {
+  min-height: min(80svh, 860px);
+}
+
+.contact__headline {
+  max-width: 8ch;
+  font-size: clamp(4rem, 8.4vw, 9rem);
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+@media (min-width: 1100px) {
+  .projects__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-card:nth-child(2),
+  .project-card:nth-child(4),
+  .project-card:nth-child(6) {
+    margin-top: 0;
+  }
+
+  .project-card:nth-child(2),
+  .project-card:nth-child(5) {
+    margin-top: 4rem;
+  }
+
+  .project-card__body {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card__description {
+    max-width: 34ch;
+  }
+
+  .project-card__stack {
+    margin-top: 0.25rem;
+  }
+}

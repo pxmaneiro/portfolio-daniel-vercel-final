@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA — Gastronomia Contemporânea & Mixologia em São Paulo</title>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="AURA — Gastronomia Contemporânea & Mixologia em São Paulo">
+  <meta name="description" content="AURA: Alta gastronomia contemporânea e mixologia autoral nos Jardins, São Paulo. Sob o comando da Chef Helena Vasconcelos. Reserve sua mesa online.">
+  <meta name="keywords" content="restaurante sofisticado, alta gastronomia, Jardins SP, restaurante chique, mixologia autoral, Chef Helena Vasconcelos, jantar romântico, restaurante refinado">
+  <meta name="author" content="AURA Restaurante">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.aurarestaurante.com.br/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="restaurant">
+  <meta property="og:url" content="https://www.aurarestaurante.com.br/">
+  <meta property="og:title" content="AURA — Gastronomia Contemporânea & Mixologia">
+  <meta property="og:description" content="Uma experiência sensorial onde a tradição encontra a alta gastronomia contemporânea nos Jardins. Reserve sua mesa.">
+  <meta property="og:image" content="https://www.aurarestaurante.com.br/assets/logo/logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.aurarestaurante.com.br/">
+  <meta property="twitter:title" content="AURA — Gastronomia Contemporânea & Mixologia">
+  <meta property="twitter:description" content="Alta gastronomia e coquetelaria autoral no coração dos Jardins, São Paulo.">
+
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+
+  <!-- Structured Data JSON-LD (Schema.org / FoodEstablishment & FAQPage) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "@id": "https://www.aurarestaurante.com.br/#restaurant",
+    "name": "AURA Restaurante",
+    "image": "https://www.aurarestaurante.com.br/assets/logo/logo.png",
+    "url": "https://www.aurarestaurante.com.br",
+    "telephone": "+551130889100",
+    "priceRange": "$$$$",
+    "servesCuisine": [
+      "Contemporary",
+      "Brazilian",
+      "Haute Cuisine"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Alameda Lorena, 1420",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "postalCode": "01424-002",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -23.5658,
+      "longitude": -46.6632
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"],
+        "opens": "19:00",
+        "closes": "23:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Friday", "Saturday"],
+        "opens": "19:00",
+        "closes": "00:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Sunday"],
+        "opens": "12:30",
+        "closes": "16:30"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "640"
+    },
+    "hasMenu": "https://www.aurarestaurante.com.br/#cardapio"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Qual é o dress code recomendado no AURA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Recomendamos o estilo Esporte Fino ou Passeio Completo. Prezamos por uma atmosfera elegante e confortável para todos os convidados."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como funciona a política de reservas e cancelamentos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "As reservas podem ser efetuadas online ou via WhatsApp até às 17h do próprio dia. Cancelamentos devem ser informados com no mínimo 3 horas de antecedência."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O restaurante possui serviço de valet (manobrista)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim, dispomos de serviço de valet cortesia com manobristas segurados na entrada principal do restaurante na Alameda Lorena, 1420."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- =========================================================================
+       1. HEADER / NAVIGATION BAR
+       ========================================================================= -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#home" class="logo" aria-label="AURA Restaurante Home">
+        <div class="logo-badge">
+          <img src="assets/logo/logo.png" alt="AURA Logo Monogram" class="logo-img">
+        </div>
+        <span class="logo-text">AURA</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link active">Início</a></li>
+          <li><a href="#historia" class="nav-link">História</a></li>
+          <li><a href="#cardapio" class="nav-link">Cardápio</a></li>
+          <li><a href="#experiencia" class="nav-link">Ambiente</a></li>
+          <li><a href="#avaliacoes" class="nav-link">Reconhecimento</a></li>
+          <li><a href="#localizacao" class="nav-link">Localização</a></li>
+          <li><a href="#faq" class="nav-link">Dúvidas</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="btn btn-primary" data-open-modal="reservation">
+          <span>Reservar Mesa</span>
+        </button>
+
+        <div class="menu-toggle" aria-label="Abrir menu de navegação" role="button" tabindex="0">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================================================================
+         2. HERO SECTION (STOP THE SCROLL)
+         ========================================================================= -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg class="hero-badge-icon" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+            </svg>
+            <span>HAUTE CUISINE & COCKTAIL BAR</span>
+          </div>
+
+          <h1 class="hero-title">
+            Gastronomia Autoral que <span class="text-gradient">Desperta os Sentidos</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Uma experiência sensorial inesquecível nos Jardins. Trazemos o encontro perfeito entre a técnica da alta gastronomia internacional e o frescor de ingredientes nativos brasileiros.
+          </p>
+
+          <div class="hero-cta-group">
+            <button type="button" class="btn btn-primary" data-open-modal="reservation">
+              <span>Garantir Minha Reserva</span>
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </button>
+
+            <a href="#cardapio" class="btn btn-secondary">
+              <span>Explorar Cardápio</span>
+            </a>
+          </div>
+
+          <div class="hero-trust-bar">
+            <div class="trust-item">
+              <div class="trust-stars">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </div>
+              <div class="trust-text">
+                <strong>4.9 / 5.0 (640+ Avaliações)</strong>
+                <span>Guia Gastronômico 2025/2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <div class="hero-image-placeholder">
+              <div class="hero-logo-hero">
+                <img src="assets/logo/logo.png" alt="AURA Emblem" class="logo-img">
+              </div>
+              <span class="font-heading" style="font-size: 2rem; color: var(--accent-white);">AURA Fine Dining</span>
+              <span style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.5rem;">Cozinha Autoral & Mixologia</span>
+            </div>
+
+            <div class="hero-card-float">
+              <div class="title">Prato Assinatura</div>
+              <div class="desc">Vieiras grelhadas na manteiga de garrafa ao velouté de milho doce.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. ABOUT / STORY SECTION (EARN TRUST)
+         ========================================================================= -->
+    <section id="historia" class="about section-padding">
+      <div class="container about-grid">
+        <div class="about-visual">
+          <div class="hero-image-wrapper" style="aspect-ratio: 1 / 1;">
+            <div class="hero-image-placeholder">
+              <div class="hero-logo-hero">
+                <img src="assets/logo/logo.png" alt="Chef Helena Vasconcelos - AURA" class="logo-img">
+              </div>
+              <span class="font-heading" style="font-size: 2rem; color: var(--accent-white);">Chef Helena Vasconcelos</span>
+              <span style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.5rem;">Chef Executiva & Fundadora</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content-text">
+          <span class="section-tag">A HISTÓRIA & O CHEF</span>
+          <h2 class="section-title">Onde a Alta Gastronomia Encontra a Alma Brasileira</h2>
+          <p>
+            Formada pela École Lenôtre em Paris e com passagem por cozinhas premiadas com 3 estrelas Michelin na Europa, a Chef Helena Vasconcelos criou o <strong>AURA</strong> com uma missão clara: reinterpretar a alta gastronomia contemporânea utilizando 100% de ingredientes sazonais cultivados por pequenos produtores nacionais.
+          </p>
+
+          <div class="about-quote">
+            <div class="about-quote-text">
+              "Cozinhar é contar uma história em cada prato. Queremos que cada garfada desperte memória, afeto e pura elegância."
+            </div>
+            <div class="about-quote-author">— Chef Helena Vasconcelos</div>
+          </div>
+
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-number">3</div>
+              <div class="stat-label">Garfos de Ouro</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Produtores Locais</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">4.9★</div>
+              <div class="stat-label">Satisfação dos Clientes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. MENU SHOWCASE SECTION (EXPLAIN VALUE & FILTER TABS)
+         ========================================================================= -->
+    <section id="cardapio" class="menu-section section-padding">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+          <span class="section-tag">CARDÁPIO AUTORAL</span>
+          <h2 class="section-title">Criações Exclusivas & Harmonização Perfeita</h2>
+          <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">
+            Pratos elaborados com insumos sazonais. Para restrições alimentares, consulte nosso concierge no momento da reserva.
+          </p>
+        </div>
+
+        <!-- Filter Category Tabs -->
+        <div id="menu-filter-container" class="menu-filter-nav">
+          <!-- Injetado dinamicamente via JS -->
+        </div>
+
+        <!-- Menu Cards Grid -->
+        <div id="menu-grid" class="menu-grid">
+          <!-- Injetado dinamicamente via JS -->
+        </div>
+
+        <div style="text-align: center; margin-top: 3.5rem;">
+          <button type="button" class="btn btn-primary" data-open-modal="reservation">
+            <span>Reservar Mesa & Experimentar</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. ATMOSPHERE & EXPERIENCE GALLERY
+         ========================================================================= -->
+    <section id="experiencia" class="experience section-padding">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <span class="section-tag">O AMBIENTE</span>
+          <h2 class="section-title">Uma Atmosfera Íntima, Elegante e Sofisticada</h2>
+          <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">
+            Arquitetura contemporânea com iluminação cênica de penumbra, acabamentos em madeira nobre e isolamento acústico para jantares inesquecíveis.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <div class="gallery-item-placeholder">
+              <span class="gallery-item-caption">Salão Principal</span>
+              <span style="font-size: 0.8125rem; color: var(--text-muted);">Iluminação cênica e conforto acústico</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-placeholder">
+              <span class="gallery-item-caption">Bar de Mixologia</span>
+              <span style="font-size: 0.8125rem; color: var(--text-muted);">Cocktails autorais & defumação ao vivo</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-placeholder">
+              <span class="gallery-item-caption">Salão Privativo</span>
+              <span style="font-size: 0.8125rem; color: var(--text-muted);">Para até 30 convidados em eventos exclusivos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. REVIEWS & SOCIAL PROOF SECTION
+         ========================================================================= -->
+    <section id="avaliacoes" class="section-padding">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <span class="section-tag">RECONHECIMENTO & CRÍTICA</span>
+          <h2 class="section-title">O Que Dizem Nossos Convidados</h2>
+        </div>
+
+        <div id="reviews-grid" class="reviews-grid">
+          <!-- Injetado dinamicamente via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. INFO & LOCATION SECTION
+         ========================================================================= -->
+    <section id="localizacao" class="info-section section-padding">
+      <div class="container info-grid">
+        <div class="info-details">
+          <div>
+            <span class="section-tag">LOCALIZAÇÃO & HORÁRIOS</span>
+            <h2 class="section-title">Venha Viver a Experiência AURA</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+              Estamos localizados no coração dos Jardins, em São Paulo. Ambiente climatizado com serviço de valet cortesia na porta.
+            </p>
+          </div>
+
+          <div class="info-block">
+            <div class="info-block-header">
+              <div class="info-block-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <h3 class="info-block-title">Endereço</h3>
+            </div>
+            <div class="info-block-content">
+              <p><strong>Alameda Lorena, 1420 — Jardins</strong></p>
+              <p>São Paulo - SP, CEP 01424-002</p>
+              <p style="font-size: 0.8125rem; color: var(--accent-white); margin-top: 0.5rem;">★ Valet cortesia com manobrista segurado no local.</p>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <div class="info-block-header">
+              <div class="info-block-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h3 class="info-block-title">Horário de Funcionamento</h3>
+            </div>
+            <div class="info-block-content">
+              <ul class="hours-list">
+                <li class="hours-item"><span>Terça a Quinta:</span> <strong>19h00 às 23h30</strong></li>
+                <li class="hours-item"><span>Sexta e Sábado:</span> <strong>19h00 às 00h30</strong></li>
+                <li class="hours-item"><span>Domingo (Almoço):</span> <strong>12h30 às 16h30</strong></li>
+                <li class="hours-item"><span>Segunda-feira:</span> <strong style="color: var(--text-muted);">Fechado</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-card">
+          <div class="map-placeholder">
+            <svg width="48" height="48" fill="none" stroke="var(--accent-white)" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom: 1rem;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+            </svg>
+            <h4 class="font-heading" style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">Alameda Lorena, 1420</h4>
+            <p style="color: var(--text-secondary); font-size: 0.9375rem; margin-bottom: 1.5rem;">Jardins — São Paulo / SP</p>
+            <a href="https://maps.google.com/?q=Alameda+Lorena+1420+Jardins+Sao+Paulo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <span>Abrir no Google Maps</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. FAQ ACCORDION SECTION (REMOVE DOUBT)
+         ========================================================================= -->
+    <section id="faq" class="section-padding">
+      <div class="container">
+        <div style="text-align: center;">
+          <span class="section-tag">DÚVIDAS FREQUENTES</span>
+          <h2 class="section-title">Perguntas Frequentes Sobre Nossas Reservas</h2>
+        </div>
+
+        <div id="faq-list" class="faq-list">
+          <!-- Injetado dinamicamente via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. FINAL CTA BANNER (MAKE THE ASK)
+         ========================================================================= -->
+    <section class="section-padding" style="background: radial-gradient(circle at center, rgba(255, 255, 255, 0.06) 0%, var(--bg-primary) 70%); border-top: 1px solid var(--border-subtle);">
+      <div class="container" style="text-align: center; max-width: 760px;">
+        <span class="section-tag">GARANTA SEU LUGAR</span>
+        <h2 class="section-title">Pronto para Vivenciar uma Noite Inesquecível?</h2>
+        <p class="section-subtitle" style="margin-left: auto; margin-right: auto; margin-bottom: 2.5rem;">
+          Mesas limitadas por noite para garantir a excelência no atendimento e o preparo artesanal de cada prato.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <button type="button" class="btn btn-primary" data-open-modal="reservation">
+            <span>Fazer Reserva Agora</span>
+          </button>
+          <a href="#" class="btn btn-whatsapp" data-whatsapp-link>
+            <span>Reservar via WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       10. FOOTER
+       ========================================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="logo">
+            <div class="logo-badge">
+              <img src="assets/logo/logo.png" alt="AURA Logo Monogram" class="logo-img">
+            </div>
+            <span class="logo-text">AURA</span>
+          </a>
+          <p>
+            Gastronomia contemporânea autoral e mixologia de alto padrão nos Jardins, São Paulo.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#historia">História & Chef</a></li>
+            <li><a href="#cardapio">Cardápio</a></li>
+            <li><a href="#experiencia">Ambiente</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Informações</h4>
+          <ul class="footer-links">
+            <li><a href="#avaliacoes">Avaliações</a></li>
+            <li><a href="#localizacao">Localização</a></li>
+            <li><a href="#faq">Dúvidas Frequentes</a></li>
+            <li><a href="#" data-open-modal="reservation">Reservar Mesa</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Contato</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+551130889100">+55 (11) 3088-9100</a></li>
+            <li><a href="mailto:reservas@aurarestaurante.com.br">reservas@aurarestaurante.com.br</a></li>
+            <li><a href="https://instagram.com/aura.gastronomia" target="_blank" rel="noopener">@aura.gastronomia</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 AURA Restaurante. Todos os direitos reservados.</div>
+        <div>Alameda Lorena, 1420 — Jardins, São Paulo - SP</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Action Button -->
+  <a href="#" class="floating-whatsapp" data-whatsapp-link aria-label="Falar pelo WhatsApp">
+    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 001.333 4.993L2 22l5.233-1.237a9.994 9.994 0 004.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.984 0-2.669-1.038-5.176-2.925-7.062A9.925 9.925 0 0012.012 2zm5.86 14.28c-.247.69-1.428 1.353-1.956 1.41-.528.058-1.214.084-3.486-.84-2.906-1.182-4.767-4.14-4.912-4.335-.145-.195-1.181-1.572-1.181-2.998 0-1.426.747-2.128 1.012-2.417.265-.29.578-.363.771-.363.193 0 .386.002.555.01.181.008.423-.069.662.506.247.592.844 2.057.917 2.202.073.145.121.314.024.507-.097.193-.145.313-.289.483-.145.17-.305.378-.435.507-.145.145-.296.304-.127.593.169.29.749 1.237 1.607 2.001 1.103.982 2.033 1.286 2.323 1.431.29.145.459.121.628-.073.169-.193.724-.845.917-1.135.193-.29.386-.242.652-.145.265.097 1.688.797 1.977.942.29.145.483.218.555.339.073.121.073.702-.174 1.392z"/>
+    </svg>
+  </a>
+
+  <!-- =========================================================================
+       11. RESERVATION MODAL DIALOG
+       ========================================================================= -->
+  <div id="reservation-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <button id="modal-close-btn" class="modal-close" aria-label="Fechar janela de reserva">&times;</button>
+
+      <h3 id="modal-title" class="modal-title">Solicitar Reserva no AURA</h3>
+      <p class="modal-subtitle">Preencha os dados abaixo. Nossa equipe de concierge responderá em breve.</p>
+
+      <form id="reservation-form" class="form-grid">
+        <div class="form-group full-width">
+          <label class="form-label" for="res-name">Nome Completo *</label>
+          <input type="text" id="res-name" name="name" class="form-input" placeholder="Ex: Rodrigo Andrade" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="res-phone">Telefone / WhatsApp *</label>
+          <input type="tel" id="res-phone" name="phone" class="form-input" placeholder="(11) 99999-9999" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="res-email">E-mail *</label>
+          <input type="email" id="res-email" name="email" class="form-input" placeholder="seuemail@exemplo.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="res-date">Data Desejada *</label>
+          <input type="date" id="res-date" name="date" class="form-input" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="res-time">Horário *</label>
+          <select id="res-time" name="time" class="form-select" required>
+            <option value="">Selecione...</option>
+            <option value="19:00">19h00</option>
+            <option value="19:30">19h30</option>
+            <option value="20:00">20h00</option>
+            <option value="20:30">20h30</option>
+            <option value="21:00">21h00</option>
+            <option value="21:30">21h30</option>
+            <option value="22:00">22h00</option>
+          </select>
+        </div>
+
+        <div class="form-group full-width">
+          <label class="form-label" for="res-guests">Número de Pessoas *</label>
+          <select id="res-guests" name="guests" class="form-select" required>
+            <option value="2">2 Pessoas (Casal / Íntimo)</option>
+            <option value="4">4 Pessoas (Mesa Padrão)</option>
+            <option value="6">6 Pessoas (Grupo)</option>
+            <option value="8+">8 ou mais (Consulte Concierge)</option>
+          </select>
+        </div>
+
+        <div class="form-group full-width">
+          <label class="form-label" for="res-notes">Observações / Restrições Alimentares</label>
+          <textarea id="res-notes" name="notes" class="form-textarea" rows="3" placeholder="Alergias, comemorações de aniversário ou preferências de mesa..."></textarea>
+        </div>
+
+        <div class="form-group full-width" style="margin-top: 1rem;">
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <span>Confirmar Solicitação de Reserva</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/script.js"></script>
+
+</body>
+</html>
