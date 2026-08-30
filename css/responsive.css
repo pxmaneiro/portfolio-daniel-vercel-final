@@ -168,7 +168,7 @@
     grid-column: span 12;
   }
 
-  #contact .col-span-3 {
+  #contact .col-span-4 {
     grid-column: span 12;
     grid-column-start: 1;
     align-self: start;
@@ -177,6 +177,10 @@
 }
 
 @media (max-width: 599px) {
+  .section.section--contact {
+    padding-block: var(--space-6);
+  }
+
   .contact__circle {
     width: 60vw;
     height: 60vw;
@@ -185,6 +189,17 @@
 
   .contact__headline {
     max-width: none;
+    font-size: clamp(2.1rem, 9vw, 3rem);
+  }
+
+  .cta-group,
+  .contact__cta-group {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .cta-button {
+    width: 100%;
   }
 }
 
@@ -288,8 +303,8 @@
   }
 
   .hero__headline {
-    max-width: 10ch;
-    font-size: clamp(3.5rem, 14vw, 5.8rem);
+    max-width: 13ch;
+    font-size: clamp(2rem, 8.2vw, 3.6rem);
   }
 
   .hero__editorial-line {

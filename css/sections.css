@@ -24,13 +24,17 @@
   overflow: visible;
 }
 
+.section--hero .stack-lg > * + * {
+  margin-top: var(--space-2);
+}
+
 /* Headline principal  Unbounded, peso máximo, leading apertado.
    Tamanho ligeiramente acima do --fs-display-xl padrão de h1 para reforçar
    que este é O momento display do site inteiro. */
 .hero__headline {
   font-family: var(--font-display);
   font-weight: var(--fw-display-black);
-  font-size: var(--fs-display-xl);
+  font-size: clamp(3rem, 5.2vw, 6.2rem);
   line-height: var(--lh-display);
   letter-spacing: var(--tracking-tight);
   text-wrap: balance;
@@ -46,6 +50,10 @@
   line-height: var(--lh-editorial);
   color: var(--color-gray-400);
   max-width: 32ch;
+}
+
+.hero__cta-group {
+  margin-top: var(--space-1);
 }
 
 .hero__meta-block {
@@ -345,18 +353,28 @@
   line-height: var(--lh-display);
   letter-spacing: var(--tracking-tight);
   text-wrap: balance;
-  max-width: 14ch;
+  max-width: 12ch;
 }
 
-.contact__list a {
-  display: block;
+.contact__copy {
+  font-family: var(--font-editorial);
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-editorial);
   color: var(--color-gray-400);
-  transition: color var(--dur-fast) var(--ease-cinematic);
 }
 
-.contact__list a:hover,
-.contact__list a:focus-visible {
-  color: var(--color-white);
+.contact__cta-group {
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.contact__microcopy {
+  max-width: 38ch;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-meta);
+  line-height: var(--lh-meta);
+  color: var(--color-gray-600);
 }
 
 /* === FOOTER ================================================================ */
@@ -749,9 +767,9 @@
 }
 
 .contact__headline {
-  max-width: 8ch;
-  font-size: clamp(4rem, 8.4vw, 9rem);
-  line-height: 0.9;
+  max-width: 15ch;
+  font-size: clamp(2.6rem, 4.8vw, 5.25rem);
+  line-height: 0.96;
   text-wrap: balance;
 }
 
