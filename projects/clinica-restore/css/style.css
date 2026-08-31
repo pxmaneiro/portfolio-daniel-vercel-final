@@ -12,4 +12,11 @@ section{scroll-margin-top:84px}
 .button:hover{box-shadow:0 12px 25px rgba(39,72,63,.16)}
 .floating{animation:float-pulse 3s ease-in-out infinite}
 @keyframes float-pulse{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.hero-copy h1,.section-heading h2,.about-copy h2,.location-box h2,.final-cta h2{animation:text-rise .8s cubic-bezier(.22,1,.36,1) both}
+.hero-copy .lead,.hero-copy .actions,.hero-copy .micro{animation:text-rise .7s .18s cubic-bezier(.22,1,.36,1) both}
+.button{position:relative;overflow:hidden}
+.button::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.24) 48%,transparent 70%);transform:translateX(-120%);transition:transform .6s ease}
+.button:hover::after{transform:translateX(120%)}
+.nav nav a:not(.nav-cta){transition:color .2s ease,transform .2s ease}.nav nav a:not(.nav-cta):hover{color:var(--teal);transform:translateY(-2px)}
+@keyframes text-rise{from{opacity:0;transform:translateY(18px);filter:blur(3px)}to{opacity:1;transform:none;filter:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.button,.service-card,.highlight,.gallery-grid img,.contact-item,.review-placeholder,.service-card img{transition:none}.floating{animation:none}}
