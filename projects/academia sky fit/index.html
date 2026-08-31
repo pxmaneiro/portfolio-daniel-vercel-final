@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkyFit Academia — Sé | Musculação, funcional e bem-estar</title>
+<meta name="description" content="SkyFit Academia - Sé: musculação, cross training, treino funcional e estrutura completa na Praça da Sé, em São Paulo. Conheça a unidade.">
+<meta name="keywords" content="academia, academia perto de mim, musculação, personal trainer, treino funcional, academia na cidade">
+<meta property="og:title" content="Apex Training — Sua melhor versão começa aqui">
+<meta property="og:description" content="Treine com estrutura, acompanhamento e um ambiente preparado para sua evolução.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💪</text></svg>">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* ===================================================================
+       CONFIGURAÇÃO CENTRALIZADA DO CLIENTE
+       Altere estes valores para personalizar o site para outra academia.
+       =================================================================== */
+    --color-primary: #ff3d1a;       /* cor de destaque — troque aqui */
+    --color-primary-dark: #d92e0f;
+    --color-bg: #0a0a0a;
+    --color-bg-alt: #121212;
+    --color-surface: #181818;
+    --color-border: #2a2a2a;
+  }
+  *{ scroll-behavior: smooth; }
+  body{ font-family:'Inter',sans-serif; background:var(--color-bg); color:#f5f5f5; overflow-x:hidden; }
+  .font-display{ font-family:'Bebas Neue',sans-serif; letter-spacing:.02em; }
+  .text-primary{ color:var(--color-primary); }
+  .bg-primary{ background-color:var(--color-primary); }
+  .border-primary{ border-color:var(--color-primary); }
+  .bg-primary-dark{ background-color:var(--color-primary-dark); }
+  .btn-primary{ background:var(--color-primary); transition:.25s; }
+  .btn-primary:hover{ background:var(--color-primary-dark); transform:translateY(-2px); }
+  .btn-outline{ border:2px solid #fff; transition:.25s; }
+  .btn-outline:hover{ background:#fff; color:#0a0a0a; }
+  .surface{ background:var(--color-surface); }
+  .surface-alt{ background:var(--color-bg-alt); }
+  .border-custom{ border-color:var(--color-border); }
+
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.show{ opacity:1; transform:translateY(0); }
+
+  .img-zoom{ overflow:hidden; }
+  .img-zoom img{ transition:transform .6s ease; }
+  .img-zoom:hover img{ transform:scale(1.08); }
+
+  .card-hover{ transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+  .card-hover:hover{ transform:translateY(-6px); border-color:var(--color-primary); box-shadow:0 20px 40px -20px rgba(255,61,26,.4); }
+
+  .nav-link{ position:relative; }
+  .nav-link::after{ content:''; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--color-primary); transition:width .25s; }
+  .nav-link:hover::after, .nav-link.active::after{ width:100%; }
+
+  #header{ transition: background-color .3s ease, box-shadow .3s ease, padding .3s ease; }
+  #header.scrolled{ background:rgba(10,10,10,.92); backdrop-filter:blur(10px); box-shadow:0 4px 20px rgba(0,0,0,.4); }
+
+  .whatsapp-float{ box-shadow:0 8px 24px rgba(0,0,0,.4); transition:transform .25s; }
+  .whatsapp-float:hover{ transform:scale(1.08); }
+
+  ::-webkit-scrollbar{ width:8px; }
+  ::-webkit-scrollbar-track{ background:#0a0a0a; }
+  ::-webkit-scrollbar-thumb{ background:var(--color-primary); border-radius:4px; }
+
+  .stars{ color:#ffb400; letter-spacing:2px; }
+
+  .marquee-track{ display:flex; width:max-content; animation: marquee 28s linear infinite; }
+  @keyframes marquee{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+
+  input:focus, textarea:focus, select:focus{ outline:none; border-color:var(--color-primary); box-shadow:0 0 0 3px rgba(255,61,26,.15); }
+
+  @media (max-width:768px){ .font-display{ letter-spacing:.01em; } }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+<header id="header" class="fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 flex items-center justify-between h-20">
+    <a href="#inicio" class="font-display text-3xl tracking-wide">APEX<span class="text-primary">TRAINING</span></a>
+
+    <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold uppercase tracking-wide">
+      <a href="#inicio" class="nav-link active">Início</a>
+      <a href="#sobre" class="nav-link">Sobre</a>
+      <a href="#modalidades" class="nav-link">Modalidades</a>
+      <a href="#estrutura" class="nav-link">Estrutura</a>
+      <a href="#planos" class="nav-link">Planos</a>
+      <a href="#avaliacoes" class="nav-link">Avaliações</a>
+      <a href="#contato" class="nav-link">Contato</a>
+      <a href="#localizacao" class="nav-link">Localização</a>
+    </nav>
+
+    <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Encontrei%20a%20academia%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20planos%20e%20hor%C3%A1rios."
+       target="_blank" rel="noopener"
+       class="hidden lg:inline-block btn-primary text-white font-bold uppercase text-sm px-6 py-3 rounded-full">
+       Agendar uma visita
+    </a>
+
+    <button id="menuBtn" aria-label="Abrir menu" class="lg:hidden text-white">
+      <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+      <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+    </button>
+  </div>
+
+  <!-- menu mobile -->
+  <div id="mobileMenu" class="lg:hidden hidden bg-black/97 backdrop-blur border-t border-custom">
+    <nav class="flex flex-col px-6 py-6 gap-5 text-lg font-semibold uppercase">
+      <a href="#inicio" class="mobile-link">Início</a>
+      <a href="#sobre" class="mobile-link">Sobre</a>
+      <a href="#modalidades" class="mobile-link">Modalidades</a>
+      <a href="#estrutura" class="mobile-link">Estrutura</a>
+      <a href="#planos" class="mobile-link">Planos</a>
+      <a href="#avaliacoes" class="mobile-link">Avaliações</a>
+      <a href="#contato" class="mobile-link">Contato</a>
+      <a href="#localizacao" class="mobile-link">Localização</a>
+      <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="btn-primary text-white text-center font-bold px-6 py-3 rounded-full mt-2">Agendar uma visita</a>
+    </nav>
+  </div>
+</header>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+<section id="inicio" class="relative h-screen min-h-[640px] flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80" alt="Pessoa treinando com peso livre em academia moderna" class="w-full h-full object-cover" loading="eager">
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/40"></div>
+  </div>
+
+  <div class="relative z-10 text-center px-5 max-w-4xl">
+    <p class="reveal show text-primary font-bold uppercase tracking-[0.3em] text-sm mb-4">Academia & Centro de Treinamento</p>
+    <h1 class="reveal show font-display text-6xl sm:text-7xl lg:text-8xl leading-[0.95] mb-6">
+      SUPERE<br>SEUS <span class="text-primary">LIMITES</span>
+    </h1>
+    <p class="reveal show text-lg sm:text-xl text-gray-300 max-w-xl mx-auto mb-10">
+      Treine com estrutura, acompanhamento e um ambiente preparado para sua evolução.
+    </p>
+    <div class="reveal show flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Encontrei%20a%20academia%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20planos%20e%20hor%C3%A1rios." target="_blank" rel="noopener" class="btn-primary text-white font-bold uppercase px-8 py-4 rounded-full text-base">Começar agora</a>
+      <a href="#sobre" class="btn-outline text-white font-bold uppercase px-8 py-4 rounded-full text-base">Conhecer a academia</a>
+    </div>
+  </div>
+
+  <a href="#sobre" aria-label="Rolar para baixo" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+  </a>
+</section>
+
+<!-- =========================================================
+     SOBRE
+========================================================= -->
+<section id="sobre" class="py-24 lg:py-32 surface-alt">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="reveal img-zoom rounded-2xl overflow-hidden order-2 lg:order-1">
+      <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1000&q=80" alt="Ambiente interno da academia Apex Training" class="w-full h-[480px] object-cover" loading="lazy">
+    </div>
+    <div class="reveal order-1 lg:order-2">
+      <p class="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-3">Sobre nós</p>
+      <h2 class="font-display text-5xl lg:text-6xl mb-6">Muito mais que <span class="text-primary">uma academia</span></h2>
+      <p class="text-gray-300 text-lg leading-relaxed mb-4">
+        Um espaço criado para pessoas que querem cuidar da saúde, melhorar o condicionamento físico e alcançar novos resultados em um ambiente completo e motivador.
+      </p>
+      <p class="text-gray-400 leading-relaxed mb-8">
+        Aqui, cada treino é pensado para respeitar seu ponto de partida e te levar além. Estrutura completa, equipe presente e um ambiente feito para quem leva a própria evolução a sério.
+      </p>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="border-l-2 border-primary pl-4">
+          <p class="font-display text-3xl">Disciplina</p>
+          <p class="text-sm text-gray-400">Rotina que constrói resultado</p>
+        </div>
+        <div class="border-l-2 border-primary pl-4">
+          <p class="font-display text-3xl">Evolução</p>
+          <p class="text-sm text-gray-400">Progresso contínuo e real</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     MODALIDADES
+========================================================= -->
+<section id="modalidades" class="py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="reveal text-center max-w-2xl mx-auto mb-16">
+      <p class="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-3">Modalidades</p>
+      <h2 class="font-display text-5xl lg:text-6xl">Encontre o treino <span class="text-primary">ideal para você</span></h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- card template -->
+      <article class="reveal card-hover surface rounded-2xl overflow-hidden border border-custom">
+        <div class="img-zoom h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=700&q=80" alt="Área de musculação com halteres" class="w-full h-full object-cover" loading="lazy"></div>
+        <div class="p-6">
+          <h3 class="font-display text-2xl mb-2">Musculação</h3>
+          <p class="text-gray-400 text-sm mb-4">Treinos para força, condicionamento, hipertrofia e qualidade de vida.</p>
+          <a href="#contato" class="text-primary font-semibold text-sm uppercase tracking-wide">Saiba mais →</a>
+        </div>
+      </article>
+
+      <article class="reveal card-hover surface rounded-2xl overflow-hidden border border-custom">
+        <div class="img-zoom h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1591741535018-d042766c62eb?w=700&q=80" alt="Personal trainer orientando aluno" class="w-full h-full object-cover" loading="lazy"></div>
+        <div class="p-6">
+          <h3 class="font-display text-2xl mb-2">Personal Trainer</h3>
+          <p class="text-gray-400 text-sm mb-4">Acompanhamento individualizado para objetivos específicos.</p>
+          <a href="#contato" class="text-primary font-semibold text-sm uppercase tracking-wide">Saiba mais →</a>
+        </div>
+      </article>
+
+      <article class="reveal card-hover surface rounded-2xl overflow-hidden border border-custom">
+        <div class="img-zoom h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1517964706778-4667ed4e5f21?w=700&q=80" alt="Treino funcional com cordas" class="w-full h-full object-cover" loading="lazy"></div>
+        <div class="p-6">
+          <h3 class="font-display text-2xl mb-2">Treino Funcional</h3>
+          <p class="text-gray-400 text-sm mb-4">Treinos dinâmicos voltados para resistência, força, mobilidade e condicionamento.</p>
+          <a href="#contato" class="text-primary font-semibold text-sm uppercase tracking-wide">Saiba mais →</a>
+        </div>
+      </article>
+
+      <article class="reveal card-hover surface rounded-2xl overflow-hidden border border-custom">
+        <div class="img-zoom h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=700&q=80" alt="Área de cardio com esteiras" class="w-full h-full object-cover" loading="lazy"></div>
+        <div class="p-6">
+          <h3 class="font-display text-2xl mb-2">Cardio</h3>
+          <p class="text-gray-400 text-sm mb-4">Área preparada para melhorar resistência cardiovascular e condicionamento físico.</p>
+          <a href="#contato" class="text-primary font-semibold text-sm uppercase tracking-wide">Saiba mais →</a>
+        </div>
+      </article>
+
+      <article class="reveal card-hover surface rounded-2xl overflow-hidden border border-custom">
+        <div class="img-zoom h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=700&q=80" alt="Alongamento e mobilidade" class="w-full h-full object-cover" loading="lazy"></div>
+        <div class="p-6">
+          <h3 class="font-display text-2xl mb-2">Alongamento &amp; Mobilidade</h3>
+          <p class="text-gray-400 text-sm mb-4">Atividades voltadas para flexibilidade, postura e mobilidade corporal.</p>
+          <a href="#contato" class="text-primary font-semibold text-sm uppercase tracking-wide">Saiba mais →</a>
+        </div>
+      </article>
+
+      <article class="reveal card-hover surface rounded-2xl overflow-hidden border border-custom">
+        <div class="img-zoom h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=700&q=80" alt="Aula coletiva em grupo" class="w-full h-full object-cover" loading="lazy"></div>
+        <div class="p-6">
+          <h3 class="font-display text-2xl mb-2">Aulas Coletivas</h3>
+          <p class="text-gray-400 text-sm mb-4">Spinning, FitDance, Jump, Zumba, Cross Training, Pilates, Boxe e Muay Thai. <span class="italic">[inserir modalidades disponíveis]</span></p>
+          <a href="#contato" class="text-primary font-semibold text-sm uppercase tracking-wide">Saiba mais →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     ESTRUTURA (galeria)
+========================================================= -->
+<section id="estrutura" class="py-24 lg:py-32 surface-alt">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="reveal text-center max-w-2xl mx-auto mb-16">
+      <p class="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-3">Estrutura</p>
+      <h2 class="font-display text-5xl lg:text-6xl">Estrutura feita <span class="text-primary">para o seu treino</span></h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[180px] md:auto-rows-[220px]">
+      <a href="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80" target="_blank" rel="noopener" class="reveal img-zoom rounded-xl overflow-hidden col-span-2 row-span-2">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80" alt="Área de musculação" class="w-full h-full object-cover" loading="lazy">
+      </a>
+      <a href="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=1200&q=80" target="_blank" rel="noopener" class="reveal img-zoom rounded-xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=700&q=80" alt="Pesos livres" class="w-full h-full object-cover" loading="lazy">
+      </a>
+      <a href="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=1200&q=80" target="_blank" rel="noopener" class="reveal img-zoom rounded-xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=700&q=80" alt="Equipamentos de treino" class="w-full h-full object-cover" loading="lazy">
+      </a>
+      <a href="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&q=80" target="_blank" rel="noopener" class="reveal img-zoom rounded-xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&q=80" alt="Recepção da academia" class="w-full h-full object-cover" loading="lazy">
+      </a>
+      <a href="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?w=1200&q=80" target="_blank" rel="noopener" class="reveal img-zoom rounded-xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?w=700&q=80" alt="Vestiário" class="w-full h-full object-cover" loading="lazy">
+      </a>
+      <a href="https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?w=1200&q=80" target="_blank" rel="noopener" class="reveal img-zoom rounded-xl overflow-hidden col-span-2">
+        <img src="https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?w=900&q=80" alt="Espaço funcional" class="w-full h-full object-cover" loading="lazy">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     DIFERENCIAIS
+========================================================= -->
+<section id="diferenciais" class="py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="reveal text-center max-w-2xl mx-auto mb-16">
+      <p class="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-3">Diferenciais</p>
+      <h2 class="font-display text-5xl lg:text-6xl">Por que treinar <span class="text-primary">conosco?</span></h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div class="reveal card-hover surface border border-custom rounded-2xl p-6 text-center">
+        <div class="text-4xl mb-4">🏋️</div>
+        <h3 class="font-bold mb-2">Equipamentos modernos</h3>
+        <p class="text-sm text-gray-400">Estrutura preparada para diferentes tipos de treino.</p>
+      </div>
+      <div class="reveal card-hover surface border border-custom rounded-2xl p-6 text-center">
+        <div class="text-4xl mb-4">🎓</div>
+        <h3 class="font-bold mb-2">Profissionais qualificados</h3>
+        <p class="text-sm text-gray-400">Equipe pronta para orientar os alunos durante os exercícios.</p>
+      </div>
+      <div class="reveal card-hover surface border border-custom rounded-2xl p-6 text-center">
+        <div class="text-4xl mb-4">✨</div>
+        <h3 class="font-bold mb-2">Ambiente completo</h3>
+        <p class="text-sm text-gray-400">Espaço pensado para conforto, segurança e desempenho.</p>
+      </div>
+      <div class="reveal card-hover surface border border-custom rounded-2xl p-6 text-center">
+        <div class="text-4xl mb-4">🎯</div>
+        <h3 class="font-bold mb-2">Para todos os objetivos</h3>
+        <p class="text-sm text-gray-400">Estrutura preparada para iniciantes e pessoas mais experientes.</p>
+      </div>
+      <div class="reveal card-hover surface border border-custom rounded-2xl p-6 text-center">
+        <div class="text-4xl mb-4">🤝</div>
+        <h3 class="font-bold mb-2">Atendimento próximo</h3>
+        <p class="text-sm text-gray-400">Uma experiência acolhedora e motivadora para o aluno.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     EQUIPE
+========================================================= -->
+<section id="equipe" class="py-24 lg:py-32 surface-alt">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="reveal text-center max-w-2xl mx-auto mb-16">
+      <p class="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-3">Equipe</p>
+      <h2 class="font-display text-5xl lg:text-6xl">Conheça <span class="text-primary">nossa equipe</span></h2>
+      <p class="text-gray-500 text-sm mt-3 italic">[Placeholders — substituir por fotos e dados reais dos profissionais]</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="reveal card-hover surface rounded-2xl overflow-hidden border border-custom">
+        <div class="img-zoom h-64 overflow-hidden"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80" alt="Instrutor - nome a definir" class="w-full h-full object-cover" loading="lazy"></div>
+        <div class="p-5">
+          <h3 class="font-bold text-lg">[Nome do Profissional]</h3>
+          <p class="text-primary text-sm mb-2">Personal Trainer</p>
+          <p class="text-gray-400 text-xs mb-3">Especialidade: [inserir]</p>
+          <a href="#" class="text-xs text-gray-400 hover:text-primary">@instagram</a>
+        </div>
+      </div>
+      <div class="reveal card-hover surface rounded-2xl overflow-hidden border border-custom">
+        <div class="img-zoom h-64 overflow-hidden"><img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=500&q=80" alt="Instrutora - nome a definir" class="w-full h-full object-cover" loading="lazy"></div>
+        <div class="p-5">
+          <h3 class="font-bold text-lg">[Nome do Profissional]</h3>
+          <p class="text-primary text-sm mb-2">Instrutora de Funcional</p>
+          <p class="text-gray-400 text-xs mb-3">Especialidade: [inserir]</p>
+          <a href="#" class="text-xs text-gray-400 hover:text-primary">@instagram</a>
+        </div>
+      </div>
+      <div class="reveal card-hover surface rounded-2xl overflow-hidden border border-custom">
+        <div class="img-zoom h-64 overflow-hidden"><img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=500&q=80" alt="Instrutor - nome a definir" class="w-full h-full object-cover" loading="lazy"></div>
+        <div class="p-5">
+          <h3 class="font-bold text-lg">[Nome do Profissional]</h3>
+          <p class="text-primary text-sm mb-2">Coordenador Técnico</p>
+          <p class="text-gray-400 text-xs mb-3">Especialidade: [inserir]</p>
+          <a href="#" class="text-xs text-gray-400 hover:text-primary">@instagram</a>
+        </div>
+      </div>
+      <div class="reveal card-hover surface rounded-2xl overflow-hidden border border-custom">
+        <div class="img-zoom h-64 overflow-hidden"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&q=80" alt="Instrutora - nome a definir" class="w-full h-full object-cover" loading="lazy"></div>
+        <div class="p-5">
+          <h3 class="font-bold text-lg">[Nome do Profissional]</h3>
+          <p class="text-primary text-sm mb-2">Personal Trainer</p>
+          <p class="text-gray-400 text-xs mb-3">Especialidade: [inserir]</p>
+          <a href="#" class="text-xs text-gray-400 hover:text-primary">@instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     PLANOS
+========================================================= -->
+<section id="planos" class="py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="reveal text-center max-w-2xl mx-auto mb-16">
+      <p class="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-3">Planos</p>
+      <h2 class="font-display text-5xl lg:text-6xl">Escolha <span class="text-primary">seu plano</span></h2>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+      <div class="reveal card-hover surface border border-custom rounded-2xl p-8 flex flex-col">
+        <h3 class="font-display text-3xl mb-1">Plano Mensal</h3>
+        <p class="text-gray-500 text-sm mb-6">Flexibilidade total</p>
+        <p class="font-display text-5xl mb-6">R$ -- <span class="text-base font-sans text-gray-400">/mês</span></p>
+        <ul class="space-y-3 text-sm text-gray-300 mb-8 flex-1">
+          <li class="flex gap-2"><span class="text-primary">✓</span> Acesso completo à academia</li>
+          <li class="flex gap-2"><span class="text-primary">✓</span> Área de musculação</li>
+          <li class="flex gap-2"><span class="text-primary">✓</span> Área de cardio</li>
+          <li class="flex gap-2"><span class="text-primary">✓</span> Acompanhamento da equipe</li>
+        </ul>
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%20Mensal." target="_blank" rel="noopener" class="btn-outline text-white text-center font-bold uppercase py-3 rounded-full">Quero este plano</a>
+      </div>
+
+      <div class="reveal card-hover relative surface border-2 border-primary rounded-2xl p-8 flex flex-col lg:-translate-y-4">
+        <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold uppercase px-4 py-1 rounded-full">Mais popular</span>
+        <h3 class="font-display text-3xl mb-1">Plano Trimestral</h3>
+        <p class="text-gray-500 text-sm mb-6">Equilíbrio entre custo e compromisso</p>
+        <p class="font-display text-5xl mb-6">R$ -- <span class="text-base font-sans text-gray-400">/mês</span></p>
+        <ul class="space-y-3 text-sm text-gray-300 mb-8 flex-1">
+          <li class="flex gap-2"><span class="text-primary">✓</span> Tudo do plano mensal</li>
+          <li class="flex gap-2"><span class="text-primary">✓</span> Avaliação física periódica</li>
+          <li class="flex gap-2"><span class="text-primary">✓</span> Condições especiais</li>
+          <li class="flex gap-2"><span class="text-primary">✓</span> Prioridade em horários de aula</li>
+        </ul>
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%20Trimestral." target="_blank" rel="noopener" class="btn-primary text-white text-center font-bold uppercase py-3 rounded-full">Quero este plano</a>
+      </div>
+
+      <div class="reveal card-hover surface border border-custom rounded-2xl p-8 flex flex-col">
+        <h3 class="font-display text-3xl mb-1">Plano Anual</h3>
+        <p class="text-gray-500 text-sm mb-6">Melhor custo-benefício</p>
+        <p class="font-display text-5xl mb-6">R$ -- <span class="text-base font-sans text-gray-400">/mês</span></p>
+        <ul class="space-y-3 text-sm text-gray-300 mb-8 flex-1">
+          <li class="flex gap-2"><span class="text-primary">✓</span> Tudo do plano trimestral</li>
+          <li class="flex gap-2"><span class="text-primary">✓</span> Melhor valor por mês</li>
+          <li class="flex gap-2"><span class="text-primary">✓</span> Acompanhamento contínuo</li>
+          <li class="flex gap-2"><span class="text-primary">✓</span> Benefícios exclusivos de fidelidade</li>
+        </ul>
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%20Anual." target="_blank" rel="noopener" class="btn-outline text-white text-center font-bold uppercase py-3 rounded-full">Quero este plano</a>
+      </div>
+    </div>
+    <p class="reveal text-center text-gray-500 text-xs mt-8">* Valores meramente ilustrativos. Consulte condições atualizadas com nossa equipe.</p>
+  </div>
+</section>
+
+<!-- =========================================================
+     AVALIAÇÕES
+========================================================= -->
+<section id="avaliacoes" class="py-24 lg:py-32 surface-alt">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="reveal text-center max-w-2xl mx-auto mb-16">
+      <p class="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-3">Avaliações</p>
+      <h2 class="font-display text-5xl lg:text-6xl">O que nossos <span class="text-primary">alunos dizem</span></h2>
+      <p class="text-gray-500 text-sm mt-3 italic">[Placeholders — substituir por avaliações reais de alunos. Estrutura pronta para futura integração com Google Reviews]</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="reveal surface border border-custom rounded-2xl p-6">
+        <div class="stars mb-3">★★★★★</div>
+        <p class="text-gray-300 text-sm mb-5">"[Depoimento de exemplo — substituir por avaliação real do aluno sobre a experiência na academia]"</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">A</div>
+          <p class="font-semibold text-sm">[Nome do Aluno]</p>
+        </div>
+      </div>
+      <div class="reveal surface border border-custom rounded-2xl p-6">
+        <div class="stars mb-3">★★★★★</div>
+        <p class="text-gray-300 text-sm mb-5">"[Depoimento de exemplo — substituir por avaliação real do aluno sobre a experiência na academia]"</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">B</div>
+          <p class="font-semibold text-sm">[Nome do Aluno]</p>
+        </div>
+      </div>
+      <div class="reveal surface border border-custom rounded-2xl p-6">
+        <div class="stars mb-3">★★★★★</div>
+        <p class="text-gray-300 text-sm mb-5">"[Depoimento de exemplo — substituir por avaliação real do aluno sobre a experiência na academia]"</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">C</div>
+          <p class="font-semibold text-sm">[Nome do Aluno]</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     RESULTADOS
+========================================================= -->
+<section class="py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="reveal text-center max-w-2xl mx-auto mb-16">
+      <p class="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-3">Resultados</p>
+      <h2 class="font-display text-5xl lg:text-6xl">Evolução que você sente <span class="text-primary">no dia a dia</span></h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="reveal img-zoom relative h-72 rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=500&q=80" alt="Treino de força" class="w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-5"><p class="font-display text-2xl">Mais força</p></div>
+      </div>
+      <div class="reveal img-zoom relative h-72 rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1550345332-09e3ac987658?w=500&q=80" alt="Disposição no treino" class="w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-5"><p class="font-display text-2xl">Mais disposição</p></div>
+      </div>
+      <div class="reveal img-zoom relative h-72 rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=500&q=80" alt="Saúde e bem-estar" class="w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-5"><p class="font-display text-2xl">Mais saúde</p></div>
+      </div>
+      <div class="reveal img-zoom relative h-72 rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=500&q=80" alt="Qualidade de vida" class="w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-5"><p class="font-display text-2xl">Mais qualidade de vida</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     CTA GRANDE COM IMAGEM
+========================================================= -->
+<section class="relative h-[70vh] min-h-[420px] flex items-center justify-center overflow-hidden">
+  <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1920&q=80" alt="Ambiente de treino da academia" class="absolute inset-0 w-full h-full object-cover">
+  <div class="absolute inset-0 bg-black/70"></div>
+  <div class="relative z-10 text-center px-5">
+    <h2 class="reveal show font-display text-5xl lg:text-6xl mb-4">Está pronto para <span class="text-primary">começar?</span></h2>
+    <p class="reveal show text-gray-300 mb-8 max-w-lg mx-auto">Venha conhecer nossa estrutura e encontre o treino ideal para você.</p>
+    <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20visita%20%C3%A0%20academia." target="_blank" rel="noopener" class="reveal show inline-block btn-primary text-white font-bold uppercase px-10 py-4 rounded-full">Agendar uma visita</a>
+  </div>
+</section>
+
+<!-- =========================================================
+     GALERIA / EXPERIÊNCIA
+========================================================= -->
+<section class="py-24 lg:py-32 surface-alt">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="reveal text-center max-w-2xl mx-auto mb-16">
+      <p class="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-3">Galeria</p>
+      <h2 class="font-display text-5xl lg:text-6xl">Viva a <span class="text-primary">experiência</span></h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="reveal img-zoom h-56 rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=500&q=80" alt="Treino em grupo" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="reveal img-zoom h-56 rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1549476464-37392f717541?w=500&q=80" alt="Professor orientando aluno" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="reveal img-zoom h-56 rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=500&q=80" alt="Equipamentos da academia" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="reveal img-zoom h-56 rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=500&q=80" alt="Evento da academia" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="reveal img-zoom h-56 rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285?w=500&q=80" alt="Aula coletiva" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="reveal img-zoom h-56 rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=500&q=80" alt="Estrutura geral" class="w-full h-full object-cover" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     INSTAGRAM
+========================================================= -->
+<section class="py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 text-center">
+    <p class="reveal text-primary font-bold uppercase tracking-[0.3em] text-sm mb-3">Instagram</p>
+    <h2 class="reveal font-display text-5xl lg:text-6xl mb-8">Acompanhe <span class="text-primary">nossos treinos</span></h2>
+    <a href="https://instagram.com" target="_blank" rel="noopener" class="reveal btn-primary inline-block text-white font-bold uppercase px-8 py-3 rounded-full mb-12">Seguir no Instagram</a>
+    <div class="grid grid-cols-3 md:grid-cols-6 gap-3">
+      <div class="reveal img-zoom aspect-square rounded-lg overflow-hidden"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&q=80" alt="Instagram academia" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="reveal img-zoom aspect-square rounded-lg overflow-hidden"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=300&q=80" alt="Instagram academia" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="reveal img-zoom aspect-square rounded-lg overflow-hidden"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=300&q=80" alt="Instagram academia" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="reveal img-zoom aspect-square rounded-lg overflow-hidden"><img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=300&q=80" alt="Instagram academia" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="reveal img-zoom aspect-square rounded-lg overflow-hidden"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=300&q=80" alt="Instagram academia" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="reveal img-zoom aspect-square rounded-lg overflow-hidden"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=300&q=80" alt="Instagram academia" class="w-full h-full object-cover" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     CONTATO
+========================================================= -->
+<section id="contato" class="py-24 lg:py-32 surface-alt">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-2 gap-14">
+    <div class="reveal">
+      <p class="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-3">Contato</p>
+      <h2 class="font-display text-5xl mb-8">Fale com <span class="text-primary">a gente</span></h2>
+
+      <div class="space-y-5 mb-10">
+        <div class="flex items-center gap-4"><span class="text-2xl">📱</span><div><p class="text-sm text-gray-400">WhatsApp</p><a href="https://wa.me/5511999999999" class="font-semibold hover:text-primary">(11) 99999-9999</a></div></div>
+        <div class="flex items-center gap-4"><span class="text-2xl">☎️</span><div><p class="text-sm text-gray-400">Telefone</p><p class="font-semibold">(11) 3333-3333</p></div></div>
+        <div class="flex items-center gap-4"><span class="text-2xl">📷</span><div><p class="text-sm text-gray-400">Instagram</p><a href="https://instagram.com" class="font-semibold hover:text-primary">@apextraining</a></div></div>
+        <div class="flex items-center gap-4"><span class="text-2xl">✉️</span><div><p class="text-sm text-gray-400">E-mail</p><a href="mailto:contato@apextraining.com" class="font-semibold hover:text-primary">contato@apextraining.com</a></div></div>
+      </div>
+
+      <div class="surface border border-custom rounded-xl p-6">
+        <h3 class="font-bold mb-3">Horários de funcionamento</h3>
+        <div class="space-y-1 text-sm text-gray-300">
+          <div class="flex justify-between border-b border-custom py-2"><span>Segunda a sexta</span><span>05:30 às 23:00</span></div>
+          <div class="flex justify-between border-b border-custom py-2"><span>Sábado</span><span>08:00 às 18:00</span></div>
+          <div class="flex justify-between py-2"><span>Domingo</span><span>08:00 às 13:00</span></div>
+        </div>
+      </div>
+    </div>
+
+    <form class="reveal surface border border-custom rounded-2xl p-8 space-y-5" onsubmit="return handleSubmit(event)">
+      <div>
+        <label for="nome" class="block text-sm font-semibold mb-2">Nome</label>
+        <input id="nome" name="nome" type="text" required class="w-full bg-black/40 border border-custom rounded-lg px-4 py-3 text-sm">
+      </div>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div>
+          <label for="telefone" class="block text-sm font-semibold mb-2">Telefone</label>
+          <input id="telefone" name="telefone" type="tel" required class="w-full bg-black/40 border border-custom rounded-lg px-4 py-3 text-sm">
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-semibold mb-2">E-mail</label>
+          <input id="email" name="email" type="email" required class="w-full bg-black/40 border border-custom rounded-lg px-4 py-3 text-sm">
+        </div>
+      </div>
+      <div>
+        <label for="objetivo" class="block text-sm font-semibold mb-2">Objetivo</label>
+        <select id="objetivo" name="objetivo" class="w-full bg-black/40 border border-custom rounded-lg px-4 py-3 text-sm">
+          <option>Ganho de massa</option>
+          <option>Emagrecimento</option>
+          <option>Condicionamento</option>
+          <option>Saúde</option>
+          <option>Treino funcional</option>
+          <option>Personal trainer</option>
+          <option>Outro</option>
+        </select>
+      </div>
+      <div>
+        <label for="mensagem" class="block text-sm font-semibold mb-2">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="4" class="w-full bg-black/40 border border-custom rounded-lg px-4 py-3 text-sm"></textarea>
+      </div>
+      <button type="submit" class="btn-primary w-full text-white font-bold uppercase py-4 rounded-full">Enviar mensagem</button>
+      <p id="formFeedback" class="text-sm text-primary hidden">Mensagem pronta! Redirecionando para o WhatsApp...</p>
+    </form>
+  </div>
+</section>
+
+<!-- =========================================================
+     LOCALIZAÇÃO
+========================================================= -->
+<section id="localizacao" class="py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
+    <div class="reveal">
+      <p class="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-3">Localização</p>
+      <h2 class="font-display text-5xl mb-6">Onde <span class="text-primary">estamos</span></h2>
+      <div class="space-y-2 text-gray-300 mb-8">
+        <p class="font-bold text-white text-lg">Apex Training</p>
+        <p>[Rua e número a definir]</p>
+        <p>[Bairro] — [Cidade]/[UF]</p>
+        <p>CEP: [00000-000]</p>
+      </div>
+      <a href="https://www.google.com/maps" target="_blank" rel="noopener" class="btn-primary inline-block text-white font-bold uppercase px-8 py-3 rounded-full">Como chegar</a>
+    </div>
+    <div class="reveal rounded-2xl overflow-hidden border border-custom h-80 lg:h-96">
+      <iframe
+        title="Mapa de localização da Apex Training"
+        src="https://www.google.com/maps?q=Brasil&output=embed"
+        class="w-full h-full grayscale contrast-125 invert-[.92]"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     CTA FINAL
+========================================================= -->
+<section class="py-24 border-t border-custom surface-alt">
+  <div class="max-w-4xl mx-auto px-5 text-center">
+    <h2 class="reveal font-display text-5xl lg:text-6xl mb-4">Comece sua <span class="text-primary">evolução hoje</span></h2>
+    <p class="reveal text-gray-400 mb-8">Entre em contato e venha conhecer nossa estrutura.</p>
+    <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Encontrei%20a%20academia%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20planos%20e%20hor%C3%A1rios." target="_blank" rel="noopener" class="reveal inline-block btn-primary text-white font-bold uppercase px-10 py-4 rounded-full">Falar pelo WhatsApp</a>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="pt-16 pb-8 bg-black border-t border-custom">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+    <div>
+      <p class="font-display text-3xl mb-3">APEX<span class="text-primary">TRAINING</span></p>
+      <p class="text-gray-500 text-sm">Academia e centro de treinamento feito para sua evolução.</p>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-sm uppercase tracking-wide">Links rápidos</h4>
+      <ul class="space-y-2 text-sm text-gray-400">
+        <li><a href="#sobre" class="hover:text-primary">Sobre</a></li>
+        <li><a href="#planos" class="hover:text-primary">Planos</a></li>
+        <li><a href="#avaliacoes" class="hover:text-primary">Avaliações</a></li>
+        <li><a href="#contato" class="hover:text-primary">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-sm uppercase tracking-wide">Modalidades</h4>
+      <ul class="space-y-2 text-sm text-gray-400">
+        <li>Musculação</li>
+        <li>Personal Trainer</li>
+        <li>Treino Funcional</li>
+        <li>Aulas Coletivas</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-sm uppercase tracking-wide">Contato</h4>
+      <ul class="space-y-2 text-sm text-gray-400">
+        <li><a href="https://wa.me/5511999999999" class="hover:text-primary">(11) 99999-9999</a></li>
+        <li><a href="https://instagram.com" class="hover:text-primary">@apextraining</a></li>
+        <li>[Rua, bairro, cidade]</li>
+        <li>Seg-Sex 05:30–23:00</li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 pt-6 border-t border-custom text-center text-xs text-gray-500">
+    © 2026 Apex Training. Todos os direitos reservados.
+  </div>
+</footer>
+
+<!-- =========================================================
+     WHATSAPP FLUTUANTE
+========================================================= -->
+<a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Encontrei%20a%20academia%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20planos%20e%20hor%C3%A1rios."
+   target="_blank" rel="noopener" aria-label="Conversar no WhatsApp"
+   class="whatsapp-float fixed bottom-6 right-5 z-40 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center">
+  <svg viewBox="0 0 32 32" class="w-8 h-8 fill-white"><path d="M16.001 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.26.6 4.38 1.63 6.22L3.2 28.8l6.77-1.6a12.72 12.72 0 0 0 6.03 1.53h.01c7.06 0 12.8-5.74 12.8-12.8s-5.74-12.73-12.81-12.73zm7.47 18.2c-.31.87-1.79 1.66-2.47 1.75-.63.08-1.42.11-2.3-.15-.53-.16-1.2-.38-2.08-.75-3.65-1.58-6.03-5.25-6.21-5.5-.18-.24-1.48-1.97-1.48-3.76s.94-2.67 1.28-3.03c.34-.37.74-.46.99-.46.25 0 .5.003.71.01.23.01.53-.09.83.63.31.75 1.05 2.58 1.14 2.77.09.19.15.41.03.66-.12.25-.18.4-.35.62-.18.22-.37.49-.53.66-.18.18-.37.38-.16.75.21.37.94 1.55 2.02 2.51 1.39 1.24 2.56 1.63 2.93 1.81.37.18.59.15.8-.09.22-.25.93-1.08 1.18-1.45.25-.37.5-.31.83-.19.34.12 2.16 1.02 2.53 1.2.37.19.62.28.71.44.09.16.09.9-.22 1.77z"/></svg>
+</a>
+
+<script>
+  // Dados confirmados no perfil público do Google Maps (link fornecido pelo cliente)
+  const skyfitLocation = {
+    name: 'SkyFit Academia - Sé',
+    address: 'Praça da Sé, 250 - Sé, São Paulo - SP, 01001-001',
+    phone: '(11) 97571-3399',
+    instagram: '@skyfitse',
+    instagramUrl: 'https://www.instagram.com/skyfitse/',
+    rating: '4,85',
+    reviewCount: '1.140 avaliações'
+  };
+  document.title = 'SkyFit Academia - Sé | Musculação, funcional e bem-estar';
+  document.querySelectorAll('a[href*="wa.me/"]').forEach(a => { a.href = `https://wa.me/5511975713399?text=${encodeURIComponent('Olá! Encontrei a SkyFit Academia - Sé pelo site e gostaria de saber mais sobre planos e horários.')}`; });
+  document.querySelectorAll('a[href="https://instagram.com"], a[href="https://www.instagram.com"]').forEach(a => { a.href = skyfitLocation.instagramUrl; a.textContent = skyfitLocation.instagram; });
+  const map = document.querySelector('#localizacao iframe');
+  if (map) map.src = 'https://www.google.com/maps?q=Pra%C3%A7a+da+S%C3%A9%2C+250%2C+S%C3%A3o+Paulo%2C+SP&output=embed';
+  const loc = document.querySelector('#localizacao');
+  if (loc) { loc.querySelectorAll('p').forEach(p => { if (p.textContent.includes('[Rua')) p.textContent = skyfitLocation.address; if (p.textContent.includes('[Bairro')) p.textContent = 'Sé — São Paulo/SP'; if (p.textContent.includes('CEP:')) p.textContent = 'CEP: 01001-001'; }); loc.querySelector('a.btn-primary').href = 'https://www.google.com/maps/dir/?api=1&destination=Pra%C3%A7a+da+S%C3%A9%2C+250%2C+S%C3%A3o+Paulo%2C+SP'; }
+  document.querySelectorAll('section').forEach(section => { if (section.id === 'avaliacoes' && !section.textContent.includes('4,85')) { const note = document.createElement('p'); note.className = 'reveal text-center text-primary font-bold text-lg mt-6'; note.textContent = `★ ${skyfitLocation.rating}/5 · ${skyfitLocation.reviewCount}`; section.querySelector('.max-w-7xl')?.appendChild(note); } });
+
+  // menu mobile
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const iconOpen = document.getElementById('iconOpen');
+  const iconClose = document.getElementById('iconClose');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    iconOpen.classList.toggle('hidden');
+    iconClose.classList.toggle('hidden');
+  });
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+  }));
+
+  // header ao rolar
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+  });
+
+  // reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // formulário -> whatsapp
+  function handleSubmit(e){
+    e.preventDefault();
+    const nome = document.getElementById('nome').value;
+    const telefone = document.getElementById('telefone').value;
+    const objetivo = document.getElementById('objetivo').value;
+    const mensagem = document.getElementById('mensagem').value;
+    const texto = `Olá! Meu nome é ${nome}. Telefone: ${telefone}. Objetivo: ${objetivo}. ${mensagem}`;
+    document.getElementById('formFeedback').classList.remove('hidden');
+    setTimeout(() => {
+      window.open(`https://wa.me/5511975713399?text=${encodeURIComponent(texto)}`, '_blank');
+    }, 600);
+    return false;
+  }
+</script>
+</body>
+</html>
