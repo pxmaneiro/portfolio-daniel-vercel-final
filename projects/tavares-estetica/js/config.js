@@ -1,10 +1,12 @@
 window.tavaresConfig = {
   name: 'Tavares Estética Automotiva',
-  whatsapp: '',
+  whatsapp: '5511930060606',
   instagram: '',
-  phone: '',
-  address: '',
-  hours: '',
+  phone: '+55 11 93006-0606',
+  email: 'detailingtavares@gmail.com',
+  website: 'http://www.detailingtavares.com.br',
+  address: 'Rua Bueno de Andrade, 481, São Paulo - SP, Brasil',
+  hours: 'Segunda-feira: 09:00–18:00',
   whatsappMessage: 'Olá! Vim pelo site da Tavares Estética Automotiva e gostaria de solicitar um orçamento.',
   services: [
     {name:'Pintura Automotiva', description:'Recuperação e renovação da aparência do veículo com atenção ao acabamento.', image:'assets/images/service-paint.jpg'},
