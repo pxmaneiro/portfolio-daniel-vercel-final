@@ -3,3 +3,4 @@
 /* Ajustes de composição inspirados na referência visual */
 .wrap{width:min(1320px,calc(100% - 64px))}.logo img{width:205px;max-height:64px}.hero-bg{background:linear-gradient(90deg,#05070aff 8%,#05070ae8 32%,#05070a72 62%,#05070a18 100%),url('../assets/images/hero.jpg') center/cover}.hero-content{max-width:700px}.eyebrow{border:1px solid #1f5eaf;border-radius:4px;padding:7px 11px}.hero h1{max-width:680px}.trust{position:relative;z-index:2;background:#080d14}
 @media(max-width:540px){.wrap{width:calc(100% - 32px)}.logo img{width:165px}}
+.heading-row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px}.heading-row>.btn{margin-bottom:42px;color:#4c8fff;border-color:#1f5eaf}.nav nav a:not(.btn){position:relative}.nav nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-12px;height:2px;background:var(--blue);transform:scaleX(0);transition:.25s}.nav nav a:not(.btn):hover::after,.nav nav a.active::after{transform:scaleX(1)}
