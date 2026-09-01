@@ -1,6 +1,6 @@
 (() => {
   const cfg = window.tavaresConfig;
-  const wa = message => cfg.whatsapp ? `https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent(message || cfg.whatsappMessage)}` : '#';
+  const wa = message => cfg.whatsappLink || (cfg.whatsapp ? `https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent(message || cfg.whatsappMessage)}` : '#');
   document.querySelectorAll('.wa').forEach(link => { link.href = wa(); });
   const services = document.querySelector('#services-grid');
   cfg.services.forEach(service => {
@@ -14,6 +14,9 @@
     image.addEventListener('click', () => { const win = window.open('', '_blank'); win.document.write(`<img src="${source}" style="max-width:95vw;max-height:95vh;display:block;margin:2vh auto;background:#000">`); }); gallery.appendChild(image);
   });
   document.querySelectorAll('[data-field]').forEach(element => { const value = cfg[element.dataset.field]; if (value) element.textContent = value; });
+  document.querySelectorAll('[data-field="instagram"]')?.forEach(element => { if (cfg.instagramLink && element.tagName === 'A') element.href = cfg.instagramLink; });
+  const reviewArea = document.querySelector('#review-list');
+  cfg.reviews?.forEach(review => { const article = document.createElement('article'); article.className = 'review-item reveal'; article.innerHTML = `<div class="stars">★★★★★</div><p>“${review.text}”</p><strong>${review.name}</strong><small>${review.meta}</small>`; reviewArea?.appendChild(article); });
   const nav = document.querySelector('#nav'); const menu = document.querySelector('.menu');
   menu.addEventListener('click', () => { const open = nav.classList.toggle('open'); menu.setAttribute('aria-expanded', String(open)); });
   document.querySelectorAll('#nav a').forEach(link => link.addEventListener('click', () => nav.classList.remove('open')));
