@@ -11,17 +11,17 @@ document.querySelectorAll('.filter').forEach(button => button.addEventListener('
   document.querySelectorAll('.product').forEach(product => { product.hidden = button.dataset.filter !== 'todos' && product.dataset.category !== button.dataset.filter; if (!product.hidden) count++; });
   document.querySelector('#result-count').textContent = `${count} ${count === 1 ? 'modelo' : 'modelos'}`;
 }));
+document.querySelector('#result-count').textContent = '2 modelos';
 const dialog = document.querySelector('#model-dialog');
 const dialogImage = document.querySelector('#dialog-image');
 const dialogOptions = document.querySelector('#dialog-options-list');
 const modelDetails = {
-  Aura: { category: 'Óculos de grau', image: 'https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-1.png', description: 'Acetato tartaruga · Óculos de grau', label: 'Escolha uma versão:', options: [['Tartaruga clássica','https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-1.png'],['Preto','https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-2.png'],['Tartaruga com detalhe','https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-3.png'],['Preto avermelhado','https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-4.png']] },
-  Horizonte: { category: 'Óculos de sol', image: 'assets/horizonte-frente.jpg', description: 'Óculos de sol tartaruga · Lentes escuras', label: 'Visualizações:', options: [['Frontal','assets/horizonte-frente.jpg'],['Outro ângulo','assets/horizonte-capa.jpg'],['Detalhe lateral','assets/horizonte-lateral.jpg']] },
-  Brisa: { category: 'Óculos de grau', image: 'https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-3.png', description: 'Óculos de grau · Design leve e elegante', label: 'Detalhes do modelo:', options: [] }
+  Aura: { title: 'Óculos de grau', category: 'Óculos de grau', image: 'https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-1.png', description: 'Acetato tartaruga · Óculos de grau', label: 'Escolha uma versão:', options: [['Tartaruga clássica','https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-1.png'],['Preto','https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-2.png'],['Tartaruga com detalhe','https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-3.png'],['Preto avermelhado','https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-4.png']] },
+  Horizonte: { title: 'Óculos de Sol', category: 'Óculos de sol', image: 'assets/horizonte-frente.jpg', description: 'Óculos de sol tartaruga · Lentes escuras', label: 'Visualizações:', options: [['Frontal','assets/horizonte-frente.jpg'],['Outro ângulo','assets/horizonte-capa.jpg'],['Detalhe lateral','assets/horizonte-lateral.jpg']] }
 };
 function openModel(model) {
   const detail = modelDetails[model];
-  document.querySelector('#dialog-title').textContent = detail.category ? model : '';
+  document.querySelector('#dialog-title').textContent = detail.title;
   document.querySelector('#dialog-description').textContent = detail.description;
   dialogImage.src = detail.image;
   dialogImage.alt = `${model} — ${detail.category}`;
@@ -39,7 +39,7 @@ document.querySelector('#dialog-whatsapp').addEventListener('click', () => {
 const visitButton = document.querySelector('#visit-button');
 if (visitButton) visitButton.addEventListener('click', () => {
   document.querySelector('#dialog-title').textContent = 'Vamos encontrar seu estilo.';
-  document.querySelector('#dialog-description').textContent = 'Você prefere a presença do Horizonte, o tom acolhedor do Aura ou a delicadeza do Brisa? Conheça os três modelos da coleção.';
+  document.querySelector('#dialog-description').textContent = 'Escolha entre óculos de grau e óculos de sol para encontrar o modelo ideal para você.';
   dialog.showModal();
 });
 document.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
