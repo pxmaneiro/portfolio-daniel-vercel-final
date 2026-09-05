@@ -20,6 +20,10 @@ document.querySelectorAll('.product').forEach(product => {
     product.querySelectorAll('.product-thumb').forEach(item => item.classList.toggle('active', item === thumb));
   }));
   product.querySelectorAll('.variant').forEach((variant, index) => variant.addEventListener('click', () => {
+    if (variant.dataset.image) {
+      image.src = variant.dataset.image;
+      image.alt = variant.dataset.alt || image.alt;
+    }
     const thumb = product.querySelectorAll('.product-thumb')[index];
     if (thumb) thumb.click();
     product.querySelectorAll('.variant').forEach(item => item.classList.toggle('active', item === variant));
