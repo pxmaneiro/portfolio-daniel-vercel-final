@@ -1,6 +1,17 @@
 'use strict';
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#navigation');
+const heroIntro = document.querySelector('.intro');
+if (heroIntro) heroIntro.textContent = 'Óculos que unem conforto, estilo e personalidade, com atendimento próximo em Santo André.';
+const socialTitle = document.querySelector('.testimonials h2');
+if (socialTitle) socialTitle.innerHTML = '5,0 ★ no Google.<br><em>59 avaliações de clientes.</em>';
+const visitHeading = document.querySelector('.visit h2');
+if (visitHeading) visitHeading.innerHTML = 'Encontre seu próximo<br>óculos na <em>Gaffa.</em>';
+const visitCopy = document.querySelector('.visit p:not(.eyebrow)');
+if (visitCopy) visitCopy.innerHTML = 'Fale com nossa equipe e conheça os modelos disponíveis na loja.<br><span class="visit-address">Rua Oratório, 684 — Bangu, Santo André · Seg. a sex. 9h–18h · Sáb. 9h–14h</span>';
+const visitWhatsapp = document.querySelector('.visit-actions .light');
+if (visitWhatsapp) visitWhatsapp.innerHTML = '<svg class="action-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.3-6.1-3.5-8.3Zm-8.4 18.1h-.1c-1.7 0-3.3-.5-4.7-1.3l-.3-.2-3.9 1 1-3.8-.2-.4a9.8 9.8 0 1 1 8.2 4.7Z"/></svg> Falar com a Óticas Gaffa no WhatsApp <span aria-hidden="true">↗</span>';
+document.querySelectorAll('.face-photo img, .essence-art img, .tortoise-gallery img').forEach(image => { image.loading = 'lazy'; });
 function closeMenu() { navigation.classList.remove('open'); menuButton.setAttribute('aria-expanded', 'false'); }
 menuButton.addEventListener('click', () => { const open = navigation.classList.toggle('open'); menuButton.setAttribute('aria-expanded', String(open)); });
 navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
@@ -9,9 +20,9 @@ document.querySelectorAll('.filter').forEach(button => button.addEventListener('
   document.querySelectorAll('.filter').forEach(filter => { const selected = filter === button; filter.classList.toggle('active', selected); filter.setAttribute('aria-pressed', String(selected)); });
   let count = 0;
   document.querySelectorAll('.product').forEach(product => { product.hidden = button.dataset.filter !== 'todos' && product.dataset.category !== button.dataset.filter; if (!product.hidden) count++; });
-  document.querySelector('#result-count').textContent = `${count} ${count === 1 ? 'modelo' : 'modelos'}`;
+  const resultCount = document.querySelector('#result-count');
+  if (resultCount) resultCount.textContent = `${count} ${count === 1 ? 'modelo' : 'modelos'}`;
 }));
-document.querySelector('#result-count').textContent = '2 modelos';
 const dialog = document.querySelector('#model-dialog');
 const dialogImage = document.querySelector('#dialog-image');
 const dialogOptions = document.querySelector('#dialog-options-list');
