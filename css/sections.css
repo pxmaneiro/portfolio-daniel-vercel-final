@@ -476,6 +476,18 @@
   padding-top: var(--space-2);
 }
 
+.project-card--featured {
+  grid-column: 1 / -1;
+}
+
+.project-card--featured .project-card__media {
+  aspect-ratio: 21 / 8;
+}
+
+.project-card--featured .project-card__title {
+  font-size: clamp(1.8rem, 3vw, 3rem);
+}
+
 .project-card a {
   display: block;
 }
@@ -573,6 +585,16 @@
   .project-card:focus-within .project-card__open {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .project-card--featured {
+    grid-column: auto;
+  }
+
+  .project-card--featured .project-card__media {
+    aspect-ratio: 16 / 10;
   }
 }
 
