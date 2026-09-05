@@ -30,3 +30,4 @@
  .visit-address{display:block;margin-top:8px;color:#d1d7c8}
 @media(min-width:901px){.face-editorial{grid-template-rows:220px 220px}}
 @media(min-width:721px) and (max-width:900px){.face-editorial{grid-template-rows:auto 310px 180px}}
+html,body{overflow-x:hidden}
