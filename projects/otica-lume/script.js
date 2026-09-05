@@ -11,35 +11,31 @@ document.querySelectorAll('.filter').forEach(button => button.addEventListener('
   document.querySelectorAll('.product').forEach(product => { product.hidden = button.dataset.filter !== 'todos' && product.dataset.category !== button.dataset.filter; if (!product.hidden) count++; });
   document.querySelector('#result-count').textContent = `${count} ${count === 1 ? 'modelo' : 'modelos'}`;
 }));
-document.querySelectorAll('.product').forEach(product => {
-  const image = product.querySelector('[data-product-image]');
-  product.querySelectorAll('.product-thumb').forEach(thumb => thumb.addEventListener('click', () => {
-    const thumbImage = thumb.querySelector('img');
-    image.src = thumbImage.src;
-    image.alt = thumbImage.alt;
-    product.querySelectorAll('.product-thumb').forEach(item => item.classList.toggle('active', item === thumb));
-  }));
-  product.querySelectorAll('.variant').forEach((variant, index) => variant.addEventListener('click', () => {
-    if (variant.dataset.image) {
-      image.src = variant.dataset.image;
-      image.alt = variant.dataset.alt || image.alt;
-    }
-    const thumb = product.querySelectorAll('.product-thumb')[index];
-    if (thumb) thumb.click();
-    product.querySelectorAll('.variant').forEach(item => item.classList.toggle('active', item === variant));
-  }));
-});
 const dialog = document.querySelector('#model-dialog');
-const modelDescriptions = {
-  Aura: 'Linhas arredondadas e acetato caramelo. Uma proposta acolhedora para quem gosta de um clássico com personalidade.',
-  Horizonte: 'Armação marcante em preto e lentes escuras. Uma proposta de óculos solares para acompanhar os dias ao ar livre.',
-  Brisa: 'Metal dourado e um desenho delicado. Uma proposta leve e discreta para compor o seu dia.'
+const dialogImage = document.querySelector('#dialog-image');
+const dialogOptions = document.querySelector('#dialog-options-list');
+const modelDetails = {
+  Aura: { category: 'Óculos de grau', image: 'https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-1.png', description: 'Acetato tartaruga · Óculos de grau', label: 'Escolha uma versão:', options: [['Tartaruga clássica','https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-1.png'],['Preto','https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-2.png'],['Tartaruga com detalhe','https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-3.png'],['Preto avermelhado','https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-4.png']] },
+  Horizonte: { category: 'Óculos de sol', image: 'assets/horizonte-frente.jpg', description: 'Óculos de sol tartaruga · Lentes escuras', label: 'Visualizações:', options: [['Frontal','assets/horizonte-frente.jpg'],['Outro ângulo','assets/horizonte-capa.jpg'],['Detalhe lateral','assets/horizonte-lateral.jpg']] },
+  Brisa: { category: 'Óculos de grau', image: 'https://raw.githubusercontent.com/pxmaneiro/portfolio-daniel-vercel-final/master/projects/otica-lume/assets/gaffa-tartaruga-3.png', description: 'Óculos de grau · Design leve e elegante', label: 'Detalhes do modelo:', options: [] }
 };
-document.querySelectorAll('.product-open').forEach(button => button.addEventListener('click', () => {
-  document.querySelector('#dialog-title').textContent = button.dataset.model;
-  document.querySelector('#dialog-description').textContent = modelDescriptions[button.dataset.model];
+function openModel(model) {
+  const detail = modelDetails[model];
+  document.querySelector('#dialog-title').textContent = detail.category ? model : '';
+  document.querySelector('#dialog-description').textContent = detail.description;
+  dialogImage.src = detail.image;
+  dialogImage.alt = `${model} — ${detail.category}`;
+  document.querySelector('#dialog-options-label').textContent = detail.label;
+  dialogOptions.innerHTML = '';
+  detail.options.forEach(([label, src], index) => { const option = document.createElement('button'); option.type = 'button'; option.className = `dialog-option${index === 0 ? ' active' : ''}`; option.textContent = label; option.addEventListener('click', () => { dialogImage.src = src; dialogOptions.querySelectorAll('.dialog-option').forEach(item => item.classList.toggle('active', item === option)); }); dialogOptions.appendChild(option); });
   dialog.showModal();
+}
+document.querySelectorAll('.product-open,.product-detail-link').forEach(button => button.addEventListener('click', () => {
+  openModel(button.dataset.model);
 }));
+document.querySelector('#dialog-whatsapp').addEventListener('click', () => {
+  document.querySelector('#dialog-whatsapp').href = `https://wa.me/551123795276?text=${encodeURIComponent(`Olá, Óticas Gaffa! Quero conhecer o modelo ${document.querySelector('#dialog-title').textContent}.`)}`;
+});
 const visitButton = document.querySelector('#visit-button');
 if (visitButton) visitButton.addEventListener('click', () => {
   document.querySelector('#dialog-title').textContent = 'Vamos encontrar seu estilo.';
@@ -48,4 +44,3 @@ if (visitButton) visitButton.addEventListener('click', () => {
 });
 document.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
 dialog.addEventListener('click', event => { const rect = dialog.getBoundingClientRect(); if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close(); });
-document.querySelector('#dialog-explore').addEventListener('click', () => { dialog.close(); document.querySelector('#colecao').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' }); document.querySelector('.filter.active').focus({ preventScroll: true }); });
