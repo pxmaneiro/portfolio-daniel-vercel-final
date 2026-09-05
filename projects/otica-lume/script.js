@@ -11,6 +11,20 @@ document.querySelectorAll('.filter').forEach(button => button.addEventListener('
   document.querySelectorAll('.product').forEach(product => { product.hidden = button.dataset.filter !== 'todos' && product.dataset.category !== button.dataset.filter; if (!product.hidden) count++; });
   document.querySelector('#result-count').textContent = `${count} ${count === 1 ? 'modelo' : 'modelos'}`;
 }));
+document.querySelectorAll('.product').forEach(product => {
+  const image = product.querySelector('[data-product-image]');
+  product.querySelectorAll('.product-thumb').forEach(thumb => thumb.addEventListener('click', () => {
+    const thumbImage = thumb.querySelector('img');
+    image.src = thumbImage.src;
+    image.alt = thumbImage.alt;
+    product.querySelectorAll('.product-thumb').forEach(item => item.classList.toggle('active', item === thumb));
+  }));
+  product.querySelectorAll('.variant').forEach((variant, index) => variant.addEventListener('click', () => {
+    const thumb = product.querySelectorAll('.product-thumb')[index];
+    if (thumb) thumb.click();
+    product.querySelectorAll('.variant').forEach(item => item.classList.toggle('active', item === variant));
+  }));
+});
 const dialog = document.querySelector('#model-dialog');
 const modelDescriptions = {
   Aura: 'Linhas arredondadas e acetato caramelo. Uma proposta acolhedora para quem gosta de um clássico com personalidade.',
